@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="197px" height="113px" viewBox="0 0 197 113" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>step_one</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Site-Web---Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOME" transform="translate(-150.000000, -892.000000)">
+            <g id="step_one" transform="translate(238.712813, 931.000000) rotate(-30.000000) translate(-238.712813, -931.000000) translate(124.712813, 910.000000)">
+                <polygon id="Rectangle" fill="#0072BC" fill-rule="nonzero" points="23.1724504 0.892304845 157.131397 0.868602792 227.279455 41.3686028 0.172450369 40.7294734"></polygon>
+                <text id="STEP-#1" font-family="ProximaNova-Bold, Proxima Nova" font-size="17" font-weight="bold" line-spacing="32" letter-spacing="1.21428571" fill="#F5F5F5">
+                    <tspan x="57.5805" y="21">STEP #1</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
