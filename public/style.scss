@@ -1,5 +1,17 @@
 $header-menu-font-size: 10.2px;
 $unhcr-blue: #0072bc;
+$unhcr-yellow: #FAEB00;
+
+$unhcr-lightBlue:#66AAD7;
+@mixin screenMin768OrLand{
+  @media screen and (min-width: 768px), (orientation: landscape){
+    @content
+  }
+}
+body{
+  color: #000;
+
+}
 h1{
 font-size:24px;
 font-weight: 700;
@@ -123,7 +135,12 @@ header.main-header .top-bar-section{
     line-height: 24px;
     margin-bottom: 26px;
  }
-
+.hero p,.intro h1 {
+  max-width:650px;
+  left:50%;
+  position:relative;
+  transform:translateX(-50%)
+}
  .bg-secondary-color-blurred{
    background-color: transparent;
  }
@@ -133,14 +150,8 @@ header.main-header .top-bar-section{
     position: relative;
      display: inline-block;
      margin: 28px 0;
-     left: 50%;
-     transform: translateX(-50%);
  }
- .hero-homepage,.hero-about{
-   background-size: cover;
-     background-position: center;
-     min-height: 350px;
- }
+
  .hero-homepage{
    background-image: url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_refugees_home_unhcr@2x.jpg);
  }
@@ -149,7 +160,12 @@ header.main-header .top-bar-section{
 
  }
  .hero{
-       padding-top: 64px!important;
+   text-align: center;
+       padding-top: 64px;
+       background-size: cover;
+         background-position: center;
+         min-height: 350px;
+         padding: 64px 22px;
  }
  #indexs-index .intro{
    margin:0;
@@ -157,7 +173,7 @@ header.main-header .top-bar-section{
  header.main-header #header-header{
    margin-bottom: 0;
  }
- .hero, .content-intro,.example-campaign, .tips,.example-campaign-intro,.campaigns-thumbnails-title,article,.learn-more{
+ .example-donations,.intro-difference-is-key, .content-intro,.example-campaign, .tips,.example-campaign-intro,.campaigns-thumbnails-title,article,.learn-more{
    padding: 0 22px;
  }
   .content-intro h1{
@@ -178,9 +194,22 @@ header.main-header .top-bar-section{
  .intro-step{
    padding-top: 80px;
     padding-bottom: 37px;
+    text-align: center;
+    @include screenMin768OrLand{
+      display: grid;
+      grid-template-rows: 0fr
+    }
+ }
+ .intro-step__image{
+   grid-column-start: 2;
+grid-row-start: 1;
  }
  .intro-step>h1{
    margin-bottom:12px;
+ }
+ .intro-step>h1,.intro-step>p{
+   grid-column-start: 1;
+   grid-column-end: 1;
  }
  .intro-step p{
    font-size: 14px;
@@ -229,7 +258,7 @@ header.main-header .top-bar-section{
  .button-yellow{
 
 
-      background-color: #FAEB00;
+      background-color: $unhcr-yellow;
  }
  .first-section{
    padding:0;
@@ -241,6 +270,17 @@ header.main-header .top-bar-section{
    background-color:white;
    text-align:center;
  }
+ .examples-wrapper-inner{
+   @include screenMin768OrLand{
+   display: flex;
+   flex-wrap:wrap;
+ }
+ }
+  .example-campaign{
+    @include screenMin768OrLand{
+        flex-basis:33%;
+    }
+  }
  .example-campaign p {
    color:black;
    text-align:center
@@ -272,10 +312,18 @@ font-style: normal;
 .content-contact-us{
   background-color: $unhcr-blue;
   padding: 84.2px 22px;
-  width: calc(100% - 44px);
+  width: 100vw;
       left: 50%;
       position: relative;
       transform: translateX(-50%);
+      @include screenMin768OrLand{
+        width: unset;
+            left: unset;
+            position: relative;
+            transform: none;
+            flex-basis: 33%;
+            width: calc(100%-44px)
+      }
 }
 .content-contact-us>h2,.content-contact-us>p{
   text-align: center;
@@ -404,6 +452,179 @@ font-size:25.63px
   background-color: $unhcr-blue;
   padding: 34px 0 42px 0;
 }
+.tools .custom__button-main,.start-campaign .custom__button-main,.start-campaign-today .custom__button-main{
+  margin-bottom:0;
+}
+.hero.hero-difference-is-key{
+  background-image: url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_difference_you_make_unhcr_header@2x.jpg);
+}
+.intro-difference-is-key,{
+  padding: 60px 22px;
+
+}
+.intro-difference-is-key h1{
+  color:black;
+    margin-bottom: 30px;
+}
+.intro-difference-is-key *{
+  text-align: center;
+}
+.action-top{
+  position: relative;
+}
+.action__title{
+  display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    color: white;
+    text-align: center;
+    width: 80%;
+
+}
+.action-bottom{
+  padding: 32px 26px;
+}
+.example-donations__wrapper{
+  background-color: $unhcr-blue;
+}
+.example-donations__wrapper,.start-campaign-today{
+
+
+    padding: 46px 26px
+}
+.example-donations__title,.story__title{
+  text-align: center;
+  margin-bottom: 21px;
+}
+.story__subtitle{
+  margin:0
+}
+.example-donation:not(:last-child){
+  margin-bottom: 46px
+}
+.example-donation__title,.example-donation__text{
+  color:white;
+  text-align:center;
+}
+.story__image{
+      margin-bottom: 27px;
+}
+.story hr{
+      margin: 13px 0;
+}
+.story article{
+  margin-bottom: 60px;
+}
+.start-campaign-today{
+  background-color:$unhcr-yellow
+}
+.border-black{
+  border: 2.4px solid #000000;
+}
+.project-detail-data{
+    background-color: $unhcr-blue
+}
+.project-detail-data> .small-centered{
+  width: 100%;
+    padding: 43px 22px!important
+}
+.project-detail-data .small-12.medium-7.columns,.project-detail-data .small-12.medium-5.columns{
+  padding:0
+}
+section.section-projet-details .infos-money{
+  margin-top:0
+}
+section.section-projet-details .project-detail-data .infos-money .chart-wrap.light,
+section.section-projet-details .project-detail-data .infos-money .chart-wrap.light canvas{
+  width: 167px!important;
+  height:167px!important;
+}
+section.section-projet-details .project-detail-data .current-amount{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 14px;
+}
+#show_desired_amount{
+  font-size: 16px;
+  margin-bottom: 32.7px;
+}
+.percent , .infos-money .chart-wrap .percent small{
+  font-size: 33.33px!important;
+    font-weight: 700!important;
+    font-family: proxima-nova!important;
+}
+.infos-money .chart-wrap{
+  margin-bottom: 47px;
+}
+section.section-projet-details .project-detail-data .jours-restants span,section.section-projet-details .project-detail-data .contributeurs span{
+  font-size: 32px!important;
+  line-height:0
+}
+.infos-money .chart-wrap .percent small{
+  vertical-align: unset!important
+}
+.small-12.medium-7.columns.jours-restants,p#show_days,section.section-projet-details .project-detail-data .contributeurs{
+  margin-top:0!important;
+  margin-bottom: 25px;
+}
+section.section-projet-details .project-detail-data .jours-restants small,
+section.section-projet-details .project-detail-data .contributeurs small{
+  font-size: 16px;
+}
+.fa-male:before{
+  font-size: 25px;
+}
+section.section-projet-details .project-detail-data .contributeurs i{
+position: absolute;
+        transform: translate(-175%, -45%);
+}
+section.section-projet-details .project-detail-data .project_boutons_give{
+      min-height: 0;
+      padding-top: 0;
+      padding: 8.5px 0;
+font-size: 14.3px;
+font-family: Proxima-nova;
+font-weight: 700;
+color: black;
+background: $unhcr-yellow;
+
+
+}
+#show_team {
+background-color: $unhcr-lightBlue
+}
+#show_team a {
+  font-size: 11.31px;
+  color:white
+}
+section.section-projet-details .project-detail-data .project_boutons_join{
+  height: unset;
+     line-height: unset;
+}
+section.section-projet-details .project-detail-data .infos-money .chart-wrap.light .percent{
+  position: absolute;
+  left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.tabs dd > a{
+    font-size: 14.33px;
+    padding: 8px 0px;
+font-family: proxima-nova;
+color:black
+  }
+  .bx-viewport,.maybevideocontainer{
+    height: unset!important
+  }
+  .tabs dd.active a{
+    background-color: $unhcr-lightBlue
+  }
+  section.section-projet-details .project-detail-data p#show_desired_amount{
+    margin-bottom:28px!important
+  }
 footer{
   display: none
 }
