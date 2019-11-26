@@ -48,11 +48,11 @@ window.onload=function(){
       document.querySelector('#mobileNav').classList.remove('nav-mobile-open')
     });
     /*
-    * 
+    *
     */
     [...document.getElementsByTagName('canvas')].map(el=>{
-      el.getContext('2d').strokeStyle="#0072BC";
-      el.getContext('2d').stroke();
+    //  el.getContext('2d').strokeStyle="#0072BC";
+      //el.getContext('2d').stroke();
     })
     let ShareLinkComponent = `
       <div class="share-link">
@@ -144,7 +144,21 @@ window.onload=function(){
   if(document.getElementById('projects-index')){
     document.querySelector('.first-section h1').innerText = "All fundraising pages"
   }
-  if(document.getElementById('projects-show')){
-    document.querySelector('.project_boutons_give'). innerText = 'DONATE NOW'
+  if(document.getElementById('projects-show')&&window.innerWidth >=768){
+    let height = document.querySelector('.project-detail-data').clientHeight
+    document.querySelector('.project_boutons_give'). innerText = 'DONATE NOW';
+    Array.from(document.querySelectorAll('.bxslider .maybevideocontainer')).map(el=>{
+      el.style.height = height+'px'
+    });
+
   }
+  document.querySelector('footer .left>li:last-child ul').insertAdjacentHTML('afterBegin','<li class="nodropdown footer-link-menu"><a>© UNHCR</a> </li>')
+  document.querySelector('footer').insertAdjacentHTML('afterBegin','<img class="iraiser-logo" src="https://donate.unhcr.org/themes/default/img/icons/powered-iraiser.png">')
+  document.querySelector('body').insertAdjacentHTML('afterBegin','<div class="mobile-personal-nav"><ul>'+document.querySelector('header ul.left .dropdown').innerHTML+'</ul></div>')
+document.querySelector('#header-header .top-bar .left>li:last-child').addEventListener('click',()=>{
+  document.querySelector('.mobile-personal-nav').classList.add('mobile-personal-nav-visible')
+})
+document.querySelector('.mobile-personal-nav .title.back').addEventListener('click',()=>{
+  document.querySelector('.mobile-personal-nav').classList.remove('mobile-personal-nav-visible')
+})
 }

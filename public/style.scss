@@ -150,15 +150,34 @@ header.main-header .header-spacer>div{
 }
 a.logo{
   @include screenMin768OrLand{
-    height: 60px;;
+    height: 60px;
   }
 }
+.footer-link-menu{
+  position: relative
+}
+.top-bar-section ul li:hover:not(.has-form) > a{
+  color: $unhcr-blue
+}
+.footer-link-menu:not(:last-child)::after{
+  @include screenMin768OrLand{
+  content: '';
+    position: absolute;
+    height: 20%;
+    top: 50%;
+    border-right: 1px solid WHITE;
+    right: 0;
+    transform: translateY(-50%);
+}}
 a.logo img {
+    visibility: hidden;
 width: 161px;
     margin: 17px 0;
     @include alignHorizontal;
     @include screenMin768OrLand{
       height: 100%;
+
+      visibility: visible;
       width: inherit;
       margin: unset;
       left: unset;
@@ -228,7 +247,79 @@ width: 100%;
 }
 #header-header .top-bar>section{
   z-index:1;
+  left:unset!important;
+  @include screenMin768OrLand{
+    left:50%!important
+  }
 }
+#header-header .top-bar-section ul.left > li.has-dropdown a{
+  position: relative;
+}
+#header-header .top-bar .left{
+  top: 50%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    @include screenMin768OrLand{
+      top: unset;
+  position: relative;
+  left: unset;
+  transform: none;
+}
+
+}
+.mobile-personal-nav a{
+  font-size: 32px;
+}
+.mobile-personal-nav .parent-link{
+  display: none;
+  @include screenMin768OrLand{
+    display: block
+  }
+}
+.mobile-personal-nav.mobile-personal-nav-visible{
+  display: block;
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    @include screenMin768OrLand{
+      display: none
+    }
+}
+#header-header .top-bar-section ul.left > li.has-dropdown a::before{
+  content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 5px;
+    border-color: #0072bc transparent transparent transparent;
+    border-left-style: solid;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-20%);
+    @include screenMin768OrLand{
+      display: none
+    }
+}
+.main-header .top-bar-section .has-dropdown>a:after, .main-header .top-bar-section .has-dropdown>a:after{
+  display: none;
+  @include screenMin768OrLand{
+    display: block
+  }
+}
+.mobile-personal-nav ul{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%,-50%);
+  list-style: none;
+  text-align: center;
+}
+
 .top-bar-section .has-dropdown > a:after{
   @include screenMin768OrLand{
     top:50%;
@@ -866,9 +957,13 @@ border-right: 7px solid;
     line-height: 24px;
     text-align: center;
 margin: 26px;
+white-space: normal;
 @include screenMin768OrLand{
   margin: 26px 0;
 }
+}
+#events-show #projects::after{
+  flex:auto
 }
 #projects p>a{
   color:$unhcr-blue;
@@ -1793,8 +1888,8 @@ grid-row-end: 1;}
   width: 100%;
     padding: 43px 22px!important;
     @include screenMin768OrLand{
+      padding-bottom: 50px!important;
         padding: 0 65px!important;
-        margin-bottom: 51px;
     }
 }
 .block-share-container{
@@ -1812,7 +1907,12 @@ grid-row-end: 1;}
     margin-top: 60px;
     @include screenMin768OrLand{
       flex-wrap: wrap;
+      justify-content: space-between;
     }
+}
+#events-show #projects::before{
+
+  display:none
 }
 h2.result-type:after{
   display: none
@@ -1841,7 +1941,21 @@ margin-bottom:21px;
   margin:0;
   @include screenMin768OrLand{
     padding: 0;
-    display: flex
+    display: flex;
+    flex-wrap: wrap
+  }
+}
+header ul.left .dropdown{
+  display: none!important;
+  @include screenMin768OrLand{
+
+      display: block!important;
+  }
+}
+.mobile-personal-nav{
+  display: none;
+  @include screenMin768OrLand{
+    display: none!important
   }
 }
 .has-dropdown .fa-chevron-right{
@@ -1913,16 +2027,47 @@ section.section-projet-details .project-detail-data .infos-money .chart-wrap.lig
     display: block;
   }
 }
+footer .left>li:first-child,footer .left>li:nth-child(2){
+  @include screenMin768OrLand{
+  display: none;
+}
+}
+footer .left{
+    @include screenMin768OrLand{
+    width:50vw;
+  }
+}
+footer .right{
+    @include screenMin768OrLand{
+    width:50vw;
+  padding: 0 15px;}
+}
+footer .right>li{
+  @include screenMin768OrLand{
+
+    float:right
+  }
+}
+
 section.section-projet-details .project-detail-data .current-amount{
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 9px;
   line-height: 32px;
   @include screenMin768OrLand{
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 51px;
     margin-bottom: 12px;
   }
+}
+.iraiser-logo{
+  position: absolute;
+top: 15px;
+right: 15px;
+z-index: 1;
+@include screenMin768{
+  display: none
+}
 }
 .row.project-detail-data.p2p-detail-data{
   @include screenMin768OrLand{
@@ -2011,7 +2156,7 @@ section.section-projet-details .project-detail-data .infos-money .chart-wrap.lig
 font-family: proxima-nova;
 color:black
   }
-  .bx-viewport,.maybevideocontainer{
+  .bx-viewport{
     height: unset!important
   }
   .tabs dd.active a{
@@ -2057,26 +2202,37 @@ color:black
   }
   .section-projet-details .project_images,
   .section-projet-details .project_images .bx-wrapper,
-  .section-projet-details .project_images .bxslider,
-  .section-projet-details .project_images .bx-viewport,
-  .section-projet-details .project_images .bx-viewport .maybevideocontainer,
-  .section-projet-details .project_images .bx-viewport .maybevideocontainer img{
+  .section-projet-details .project_images .bx-viewport
+{
     @include screenMin768OrLand{
       width:100%!important;
       height:100%!important
     }
 
   }
+    .section-projet-details .project_images .bx-viewport .maybevideocontainer{
+
+    }
+
   .section-projet-details .project_images img{
       @include screenMin768OrLand{
-        object-fit: cover
+        object-fit: cover;
+        height: 100%;
       }
+  }
+  li.maybevideocontainer{
+    height: unset
   }
   .project_payment #list_payment .people p.money{
     color:$unhcr-blue
   }
    .share-link__wrapper{
     display: flex;
+  }
+  .share-link{
+    @include screenMin768OrLand{
+      margin-bottom: 51px;
+    }
   }
   .share-link input{
     margin-bottom: 0;
@@ -2187,6 +2343,12 @@ max-width: 1140px;
   padding:0!important;
   font-size:17px;
 }
+#header-header .top-bar,#header-header .top-bar>section{
+  height: 100%;
+  @include screenMin768OrLand{
+    height: inherit
+  }
+}
 #header-header section.top-bar-section>a.button:first-child{
   padding-right: 2rem;
   @include screenMin768OrLand{
@@ -2199,7 +2361,15 @@ max-width: 1140px;
 }
 .button-blue-border{
   width: calc(100% - 70px);
+  @include screenMin768OrLand{
   @include alignHorizontal
+}
+}
+.front-logo{
+  background-image:url('https://cdn.iraiser.eu/y95gXDepr3lRDRnkVx3kJA==/default/origin/UNHCR-Footer-logo2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+      background-position: center;
 }
 #header-header .top-bar-section>li:not(.has-form) a:not(.button):hover{
   color: $unhcr-blue
