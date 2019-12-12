@@ -1439,6 +1439,7 @@ select{
 .tip p{
   @include screenMin768OrLand{
     font-size:19px;
+    flex:9
   }
 }
 .start-campaign,.fundraising-tools{
@@ -1500,6 +1501,7 @@ padding: 0 68px;
 .tip__content img{
   display: none;
   @include screenMin768OrLand{
+    flex:1;
     display: block;
     width:60px;
   }
