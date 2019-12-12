@@ -91,6 +91,10 @@ transition: left 0.5s;
   display: none;
 }
 }
+
+#mobileNav .lang-mobile a{
+  color:white!important
+}
 #mobileNav ul{
   list-style: none;
       margin-left: 0
@@ -397,6 +401,7 @@ width: 100%;
 }
  #header-header .top-bar-section ul.right > li.has-dropdown a{
    padding-right: 0px !important;
+   white-space: nowrap;
    @include screenMin768OrLand{
      width: unset;
      font-size:17px;
@@ -666,6 +671,9 @@ padding-bottom: 60px;
  #step-1 h1,#step-1 p,#step-3 h1,#step-3 p{
    color: $unhcr-blue;
  }
+ #step-2 h1,#step-2 p{
+   color: white;
+ }
  #step-1{
    background-color: #F5F5F5
  }
@@ -674,6 +682,7 @@ padding-bottom: 60px;
    flex-direction: row-reverse;
    padding-bottom:0;
    padding-left: unset;
+
    @include screenMin768OrLand{
 
      padding-bottom:58px;
@@ -989,9 +998,6 @@ padding: 0;
 
   border-radius:0;
 }
-.infos-money .progress .graph-barBack{
-  background-color: white
-}
 .infos-money .infos-money-details .info-money.detail{
   font-weight: 700;
   font-size: 15.76px;
@@ -1059,6 +1065,15 @@ article,.impact{
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+}
+.impact__image{
+  @include screenMin768OrLand{
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    object-fit: cover;
   }
 }
 .tip__content{
@@ -1500,6 +1515,7 @@ article.action{
   margin: 0 22px;
   padding:0;
   margin-bottom: 21px;
+  flex:1;
   @include screenMin768OrLand{
     margin-bottom: 0
   }
@@ -1613,11 +1629,11 @@ section.section-my-event aside h3{
     padding: 0 20px
   }
 }
-#my-profile header{
-  margin: 60px 0;
+#my-profile header,.user-show header{
+  margin: 60px 0!important;
   display: flex;
 }
-#my-profile>div>div{
+#my-profile>div>div,.user-show>div>div{
   max-width: 585px;
 position: relative;
 
@@ -1626,49 +1642,96 @@ position: relative;
   margin-bottom: 0;
   border: 1px solid $unhcr-blue
 }
-#my-profile>.first-section:first-child{
+#my-profile>.first-section:first-child,.user-show>.first-section:first-child{
   background-color: white
 }
-#my-profile>.first-section:not(:first-child){
+#my-profile>.first-section:not(:first-child),.user-show>.row:not(:first-child){
   background-color: #F5F5F5
 }
-#my-profile .nav-tabs{
+#my-profile .nav-tabs,.user-show .nav-tabs{
   margin-bottom: 50px!important;
 }
-#my-profile>.first-section:nth-child(2){
+#my-profile>.first-section:nth-child(2),.user-show>.row:nth-child(2){
   text-align: center
+}
+.user-show .first-section>div{
+  @include alignHorizontal
+}
+.user-show .small-offset-1{
+  margin:0!important
+}
+.user-show>.row:nth-child(2)>div{
+  @include alignHorizontal
 }
 #my-profile header.people>div:first-child{
   display: flex;
     align-items: center;
 }
-#my-profile header.people h1{
+#my-profile header.people h1,.user-show header.people h1{
   margin-bottom: 21px;
 
 }
-#my-profile header.people p{
+.user-show>div>div{
+  @include alignHorizontal
+}
+.tabs-content .active.content{
+  padding-top: 0;
+}
+#my-profile header.people p,.user-show header.people p{
   margin-bottom:8px;
 }
-#my-profile .tabs a{
+#my-profile .tabs a,.user-show .tabs a{
   background-color: $unhcr-lightBlue;
   padding: 10px 22px;
 }
-#my-profile .tabs .active a{
+.logo-bottom-text{
+  width:200px;
+  @include alignHorizontal;
+  margin: 45px 0;
+  @include screenMin768OrLand{
+    left: unset;
+    transform:none;
+    margin-bottom: 25px;
+  }
+}
+.project_event_description{
+  padding: 0 22px!important;
+  padding-bottom: 86px!important;
+}
+.project_event_description p{
+  font-size: 14px;
+  @include screenMin768OrLand{
+    font-size: 16px
+  }
+}
+.project_event_description p:last-child i{
+  font-size: 12px;
+  @include screenMin768OrLand{
+      font-size: 14px
+  }
+}
+.project_event_description a{
+  color: $unhcr-blue
+}
+#my-profile .tabs .active a,.user-show .tabs .active a{
 
     background-color: $unhcr-blue;
 }
-#my-profile #projects{
+.user-show .tabs a {
+    color: #fff;
+}
+#my-profile #projects, .user-show #projects{
   display: flex;
     flex-direction: row;
     flex-wrap:wrap
 }
-#my-profile #projects li{
+#my-profile #projects li,.user-show #projects li{
   flex-basis: 50%;
 }
 .habillage::after,#indexs-index .habillage::after{
   background-image:none
 }
-#my-profile .row, .statique-page-section >.row{
+#my-profile .row,.user-show .row, .statique-page-section >.row{
   max-width: unset
 }
 #my-profile header.people br{
@@ -1927,6 +1990,7 @@ h2.result-type:after{
   background: gray;
 padding: 0;
 margin-bottom:21px;
+background: transparent;
 @include screenMin768OrLand{
   margin-bottom: 10px!important;
   margin: 0 4px;
@@ -1936,14 +2000,29 @@ margin-bottom:21px;
   margin-bottom:0;
   background-color: $unhcr-gray
 }
+
 #projects {
   padding: 0 22px;
   margin:0;
   @include screenMin768OrLand{
-    padding: 0;
+    padding: 0!important;
     display: flex;
     flex-wrap: wrap
   }
+}
+.user-show .subhead.people>div:first-child>a{
+  top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    display: block;
+
+}
+.user-show .subhead.people br{
+  display: none
+}
+.user-show #project{
+  padding-left: 0.28125em;
+padding-right: 0.28125em;
 }
 header ul.left .dropdown{
   display: none!important;
