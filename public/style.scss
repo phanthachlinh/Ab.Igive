@@ -551,7 +551,7 @@ transform: translateY(-50%);
        padding-top: 64px;
        background-size: cover;
          background-position: center;
-         min-height: 350px;
+         min-height: 450px;
          padding: 64px 22px;
          height: 375px;
          @include alignHorizontal;
@@ -622,8 +622,19 @@ transform: translateY(-50%);
 padding-bottom: 60px;
     }
  }
- .content-intro p {
+ .example-donation__title,.story__title{
+       @include screenMin768OrLand{
+   font-size: 30px}
+ }
+.example-donation__text,.story__subtitle,.story p{
+      @include screenMin768OrLand{
+   font-size: 19px}
+ }
+ .content-intro p,.about-articles > article p,#events-index .first-section .row p,.hero__content-wrapper p {
    font-size:16px;
+   @include screenMin768OrLand{
+     font-size: 19px
+   }
  }
  .top-bar-section .right li .dropdown{
    @include screenMin768OrLand{
@@ -1023,6 +1034,11 @@ line-height: 17px!important;
 
 .about-articles h1{
   margin-bottom:15px;
+}
+.about-articles>article h1,#events-index .first-section .row h1,.hero__content-wrapper h1{
+  @include screenMin768OrLand{
+  font-size:30px;
+}
 }
 .about-articles article{
   @include screenMin768OrLand{
@@ -1498,7 +1514,7 @@ padding: 0 68px;
   padding: 60px 22px;
 
 }
-.intro-difference-is-key h1{
+.intro-difference-is-key h1,.content-intro h1{
   color:black;
     margin-bottom: 30px;
 
@@ -2107,9 +2123,9 @@ section.section-projet-details .project-detail-data .infos-money .chart-wrap.lig
   }
 }
 footer .left>li:first-child,footer .left>li:nth-child(2){
-  @include screenMin768OrLand{
+
   display: none;
-}
+
 }
 footer .left{
     @include screenMin768OrLand{
@@ -2352,7 +2368,6 @@ color:black
     }
   }
   .lang-mobile{
-    position: absolute;
     width: 100%;
     bottom: 0;
     margin-bottom: 0;
