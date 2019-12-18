@@ -532,11 +532,10 @@ transform: translateY(-50%);
     color:black
   }
  .hero__content-wrapper{
-    top: 50%;
-    position: relative;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    max-width: 657px;
+   position: relative;
+   transform: translateX(-50%);
+   left: 50%;
+   max-width: 657px;
  }
 .start-campaign h1,.button-yellow,.infos-money .infos-money-details .info-money.detail{
    color:black
@@ -551,7 +550,7 @@ transform: translateY(-50%);
        padding-top: 64px;
        background-size: cover;
          background-position: center;
-         min-height: 450px;
+         min-height: 550px;
          padding: 64px 22px;
          height: 375px;
          @include alignHorizontal;
@@ -648,6 +647,7 @@ padding-bottom: 60px;
    padding-top: 80px;
     padding-bottom: 37px;
     text-align: center;
+    width:100%;
     @include screenMin768OrLand{
 
     }
@@ -960,12 +960,23 @@ border-right: 7px solid;
   max-width: unset;
 }
 #indexs-index .habillage>section>.row .intro section{
+  display: flex;
+    align-items: center;
   @include alignHorizontal;
+}
+.intro-steps{
+  flex-direction: column!important
 }
 .section-home-projects.first-section.bg-color-dark{
   background-color: #F6F6F6
 }
-.intro-step,.example-campaigns,.section-home-projects ul{
+.example-campaigns{
+  display: block!important
+}
+.intro-step{
+  max-width: 1140px;
+}
+.example-campaigns,.section-home-projects ul{
   max-width: 1140px;
   @include alignHorizontal
 }
@@ -1059,6 +1070,7 @@ article,.impact{
   margin: 0 22px;
     margin-top: 60px;
   @include screenMin768OrLand{
+    margin: inherit;
     display: flex;
     @include alignHorizontal
   }
@@ -2517,6 +2529,9 @@ font-weight: 700;
 margin: 15px 0;
 display: inline-block;
 font-size: 19.6px;
+@include screenMin768OrLand{
+  min-height: 38px;
+}
     }
     .successful-projects li p{
 font-weight: 700;
