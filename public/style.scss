@@ -1,8 +1,15 @@
+@font-face {
+  font-family: DIN;
+  src: url('http://localhost:8881/din-regular.woff');
+}
 $header-menu-font-size: 10.2px;
 $unhcr-blue: #0072bc;
+
+$unrwa-blue: #24AAE2;
 $unhcr-yellow: #FAEB00;
 $unhcr-gray: #F5F5F5;
 $unhcr-lightBlue:#66AAD7;
+$unrwa-lightBlue:#E9F4FD;
 @mixin alignHorizontal{
   left: 50%;
 position: relative;
@@ -23,6 +30,21 @@ transform: translateX(-50%);
     @content;
   }
 }
+@mixin DINbold{
+  font-family: din-2014, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+@mixin DINdemi{
+  font-family: din-2014, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+@mixin DinExtraBold{
+  font-family: din-2014, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
 @media (min-width: 40.063em){
 .tabs-content .content {
     padding: 0 22px;
@@ -33,19 +55,19 @@ body{
 
 }
 h1{
-font-size:24px;
-font-weight: 700;
-font-family: proxima-nova, sans-serif;
+font-size:30px;
+font-family: din-2014, sans-serif;
+font-weight: 600;
 font-style: normal;
 }
 h1.blue{
-  color: $unhcr-blue!important
+  color: $unhcr-blue!important;
 }
 h2{
-  font-size:18px;
+  font-size:19px;
   margin-bottom: 0px;
+  font-family: myriad-pro, sans-serif;
   font-weight: 700;
-  font-family: proxima-nova, sans-serif;
   font-style: normal;
 }
 h4{
@@ -53,6 +75,9 @@ h4{
   font-weight: 700;
   font-family: proxima-nova, sans-serif;
   font-style: normal;
+}
+h1,h2,h3,h4,h5,h6{
+  color:black
 }
 .link-to-user a{
   font-size:15.76px;
@@ -69,10 +94,14 @@ html{
 }
 *,p{
   font-size:16px;
-  font-family: proxima-nova, sans-serif;
-font-weight: 400;
-font-style: normal;
+  font-family: myriad-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 margin-bottom:unset;
+@include screenMin768OrLand{
+
+    font-size:19px;
+}
 }
 @mixin screenMax640px{
   @media (max-width: 640px){
@@ -389,9 +418,6 @@ width: 100%;
 .section-my-event .first-section{
   background-color:white
 }
-.intro-my-event h1,h2,h3,h4,h5,h6{
-  color:$unhcr-blue!important
-}
 .intro-my-event *{
   color:black
 }
@@ -464,11 +490,14 @@ width: 100%;
     font-size: 24px;
     color: white;
     line-height: 24px;
-    margin-bottom: 26px;
  }
 .hero p,.intro h1 {
   max-width:754px;
   @include alignHorizontal;
+  @include screenMin768OrLand{
+    left:0;
+    transform:none;
+  }
 }
 .hero-small{
   @include screenMin768OrLand{
@@ -499,17 +528,27 @@ transform: translateY(-50%);
  }
  .custom__button-main,#widget-new-project a,#indexs-index .event-item .page-create{
     padding: 10px 30px!important;
-    font-weight: 700;
+    font-size:16px;
     position: relative;
      display: inline-block;
      margin-top: 28px
  }
-
+ .button-red{
+   background: #FE5F5E;
+   color:white
+ }
+ .button-blue{
+   background: $unrwa-blue;
+   color:white
+ }
+ .border-white{
+   border:1px solid white
+ }
  .hero-homepage{
-   background-image: url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_refugees_home_unhcr@2x.jpg);
+   background-image: url("http://localhost:8881/assets/image_header_home_unrwa.png");
  }
  .hero-about{
-     background-image: url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_building_better_futures_unhcr@2x.jpg);
+     background-image: url("http://localhost:8881/assets/pic_about_unrwa_header@2x.jpg"), url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_building_better_futures_unhcr@2x.jpg);
 
  }
  .hero-homepage h1{
@@ -531,11 +570,25 @@ transform: translateY(-50%);
   .main-header .top-bar-section .has-dropdown > a:after{
     color:black
   }
+  #pages-show .hero__content-wrapper{
+    @include alignHorizontal
+  }
  .hero__content-wrapper{
    position: relative;
    transform: translateX(-50%);
    left: 50%;
-   max-width: 657px;
+   max-width: 753px;
+   @include screenMin768OrLand{
+     left: 10.66%;
+     transform:none;
+
+     width:100vw;
+   }
+ }
+ .hero__content-wrapper h1{
+   @include screenMin768OrLand{
+     text-align: left
+   }
  }
 .start-campaign h1,.button-yellow,.infos-money .infos-money-details .info-money.detail{
    color:black
@@ -550,11 +603,12 @@ transform: translateY(-50%);
        padding-top: 64px;
        background-size: cover;
          background-position: center;
-         min-height: 550px;
-         padding: 64px 22px;
-         height: 375px;
+         padding: 64px 16px;
+         padding-top:64px;
+         padding-bottom:53px;
          @include alignHorizontal;
          @include screenMin768OrLand{
+           text-align:left;
            height: 475px;
          }
  }
@@ -571,8 +625,7 @@ transform: translateY(-50%);
  #main-nav .top-bar-section li:not(.has-form) a:not(.button) {
    @include screenMin768OrLand{
     text-transform: uppercase;
-    font-family: proxima-nova;
-    font-weight: 700;
+    @include DINbold;
     color: black;
     background-color: transparent!important
   }
@@ -589,6 +642,7 @@ transform: translateY(-50%);
  .example-donations,.intro-difference-is-key,.example-campaign, .content-intro,#indexs-index .examples-wrapper-inner .event-item, .tips,.example-campaign-intro,.campaigns-thumbnails-title,article,.learn-more{
    padding: 0 22px;
  }
+
  #indexs-index .examples-wrapper-inner ul .amount{
    display: none;
 
@@ -606,7 +660,7 @@ transform: translateY(-50%);
      padding: 0 11px!important;
    }
  }
-  .content-intro h1{
+  .h1{
     color:black;
   }
  .content-intro{
@@ -617,8 +671,9 @@ transform: translateY(-50%);
    padding-top: 48px;
     padding-bottom: 40px;
     @include screenMin768OrLand{
-      padding-top: 56px;
-padding-bottom: 60px;
+      padding-top: 23px;
+padding-bottom: 62px;
+padding:inherit 0;
     }
  }
  .example-donation__title,.story__title{
@@ -629,10 +684,22 @@ padding-bottom: 60px;
       @include screenMin768OrLand{
    font-size: 19px}
  }
- .content-intro p,.about-articles > article p,#events-index .first-section .row p,.hero__content-wrapper p {
-   font-size:16px;
+ .headline__wrapper{
+   margin-bottom:10px;
+ }
+#events-index .first-section .row p,.hero__content-wrapper p {
+   font-size:18px;
    @include screenMin768OrLand{
      font-size: 19px
+   }
+ }
+ .intro-step h1{
+   font-size: 20px;
+   line-height: 20px;
+   margin-bottom:20px;
+   @include screenMin768OrLand{
+     font-size:26px;
+     line-height:29px;
    }
  }
  .top-bar-section .right li .dropdown{
@@ -648,8 +715,9 @@ padding-bottom: 60px;
     padding-bottom: 37px;
     text-align: center;
     width:100%;
+       max-width: 1440px;
     @include screenMin768OrLand{
-
+      text-align:left;
     }
  }
  .intro-step__image{
@@ -663,9 +731,12 @@ padding-bottom: 60px;
      text-align: left!important
    }
  }
+ .step3__link{
+   color:$unrwa-blue
+ }
  #step-2 h1,  #step-2 p{
    @include screenMin768{
-     text-align: right!important
+     text-align: left!important
    }
  }
  .intro-step>h1{
@@ -674,40 +745,51 @@ padding-bottom: 60px;
  .intro-step>h1,.intro-step>p{
  }
  .intro-step p{
-   font-size: 14px;
+   font-size: 16px;
+   line-height: 20px;
+   @include screenMin768OrLand{
+     font-size:19px;
+     line-height: 26px;
+   }
  }
  .intro-step>*{
    padding: 0 22px;
  }
- #step-1 h1,#step-1 p,#step-3 h1,#step-3 p{
-   color: $unhcr-blue;
+ #step-1 h1,#step-3 h1{
+   color: $unrwa-blue;
+ }
+ #step-1 p,#step-3 p{
+   color:black;
  }
  #step-2 h1,#step-2 p{
    color: white;
  }
  #step-1{
-   background-color: #F5F5F5
+   background-color: $unrwa-lightBlue
  }
  #step-2{
-   background-color: $unhcr-blue;
+   background-color: $unrwa-blue;
    flex-direction: row-reverse;
    padding-bottom:0;
-   padding-left: unset;
 
    @include screenMin768OrLand{
 
      padding-bottom:58px;
-     padding-right: 80px;
      overflow: visible;
 z-index: 1;
    }
  }
  #step-3{
-   background-color: #F5F5F5
+   background-color: $unrwa-lightBlue
  }
- .intro-step:not(#step-2) .intro-step-text{
+ #step-2.intro-step .intro-step-text{
    @include screenMin768OrLand{
-     max-width: 367px;
+     flex-basis:60%
+   }
+ }
+ #step-2.intro-step .intro-step__image-wrapper{
+   @include screenMin768OrLand{
+     flex-basis:40%
    }
  }
  .intro-step{
@@ -715,9 +797,7 @@ z-index: 1;
        position: relative;
        @include screenMin768OrLand{
          display: flex;
-         padding: 78px 0;
-         padding-left: 80px;
-         padding-left: 17%;
+         padding: 78px 17%;
        }
  }
  #phoneImageFull{
@@ -738,34 +818,29 @@ z-index: 1;
    }
  }
  .intro-step-text{
-   display: flex;
-
-    flex-direction: column;
-    justify-content: center;
     @include screenMin768OrLand{
-      flex-basis: 50%
+      flex-basis: 40%
     }
  }
  .intro-step__image-wrapper{
    @include screenMin768OrLand{
-     flex-basis:50%;
+     flex-basis:60%;
    }
  }
  .intro-step__ribbon{
-   position: absolute;
-   top: 0;
-   left: 0;
-       width: 45%;
-   padding: 0;
-   text-align: left;
-   @include screenMin768OrLand{
-         width: 20%;
-   }
+   display: inline-block;
+   padding: 5px 15px;
+ 	border-radius: 3.2px;
+ 	background-color: #24AAE2;
+  margin-bottom:20px;
+  @include DINbold
  }
  #step-2 .intro-step__ribbon{
 right:0;
 left:unset;
-text-align: right
+text-align: right;
+color:$unrwa-blue;
+background-color: white;
  }
  .intro-step__ribbon_image{
    width:100%;
@@ -790,10 +865,10 @@ transform: translateY(-50%);
  .intro-step__image:not(#step-2 .intro-step__image){
    margin-top:28px;
  }
- .button-yellow,#widget-new-project a, .page-create{
+ .button-unrwa-blue,#widget-new-project a, .page-create{
 
-color: black;
-      background-color: $unhcr-yellow;
+   color: white;
+   background-color: $unrwa-blue;
  }
  .hero h1{
    color: black
@@ -880,14 +955,26 @@ color: black;
  }
 .examples-wrapper-inner  .event-description h3 a{font-size: 18px;}
  .example-campaign-intro {
-   padding: 40px 22px;
+   padding: 0 22px;
+   padding-top:50px;
+   padding-bottom: 28px;
    @include screenMin768OrLand{
-     padding: 60px 22px
+     padding: 60px 22px;
+     max-width: 753px;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
    }
 }
+ .example-campaign-intro>h1{
+   margin-bottom:28px;
+ }
  .example-campaign-intro>h1,.example-campaign-intro p{
    color:black;
    text-align: center
+ }
+ .example-campaign-intro>h1, .example-campaign-intro p{
+   line-height: 20px;
  }
  .button-blue-border{
    background-color: $unhcr-blue;
@@ -963,6 +1050,7 @@ border-right: 7px solid;
   display: flex;
     align-items: center;
   @include alignHorizontal;
+  max-width:1440px;
 }
 .intro-steps{
   flex-direction: column!important
@@ -973,9 +1061,7 @@ border-right: 7px solid;
 .example-campaigns{
   display: block!important
 }
-.intro-step{
-  max-width: 1140px;
-}
+
 .example-campaigns,.section-home-projects ul{
   max-width: 1140px;
   @include alignHorizontal
@@ -1043,10 +1129,7 @@ line-height: 17px!important;
   @include alignHorizontal;
 }
 
-.about-articles h1{
-  margin-bottom:15px;
-}
-.about-articles>article h1,#events-index .first-section .row h1,.hero__content-wrapper h1{
+#events-index .first-section .row h1,.hero__content-wrapper h1{
   @include screenMin768OrLand{
   font-size:30px;
 }
@@ -1065,7 +1148,7 @@ article,.impact{
 
 .impact{
   text-align:center;
-  background-color: $unhcr-blue;
+  background-color: $unrwa-lightBlue;
   max-width: 1140px;
   margin: 0 22px;
     margin-top: 60px;
@@ -1074,6 +1157,50 @@ article,.impact{
     display: flex;
     @include alignHorizontal
   }
+}
+.where-we-work__content{
+    max-width:1140px;
+    @include alignHorizontal;
+
+}
+.where-we-work__content>.headline__wrapper>h1,.where-we-work__content>.headline__wrapper>h2{
+  text-align:center;
+}
+.where-we-work__content>.headline__wrapper>h1{
+  margin-bottom:60px;
+
+}
+.places__top_2{
+  margin-bottom: 96px;
+}
+.place__container>h2{
+  color:$unrwa-blue
+}
+.places>.place__container{
+  max-width: 753px;
+  @include alignHorizontal
+}
+.where-we-work__content>h2{
+  max-width:753px;
+  @include alignHorizontal
+}
+.where-we-work__content>.headline__wrapper{
+  max-width: 753px;
+  margin-bottom: 60px;
+  @include alignHorizontal
+}
+.where-we-work__content{
+      padding-top: 60px;
+      padding-bottom: 80px
+}
+.where-we-work__content>.place__container>h2{
+  color:$unrwa-blue
+}
+.places__top_2{
+  display:flex
+}
+.places__top_2 .unrwa__map_wrapper,.places__top_2 .places__top_2_container{
+  flex-basis:50%
 }
 .event-head .intro-my-event h1{
   font-size: 24px;
@@ -1093,6 +1220,7 @@ article,.impact{
     display: flex;
     flex-direction: column;
     justify-content: center;
+        padding: 163px 0;
   }
 }
 .impact__image{
@@ -1126,26 +1254,17 @@ align-items: center;
   margin-bottom: 31px;
 }
 .impact .impact__title, .impact .impact__text{
-  color:white;
+  color:black;
   padding:0 47px;
   text-align: center;
-  font-weight: 700
 }
 .impact .impact__title{
-  margin-top:34px;
+  color:$unrwa-blue;
   margin-bottom: 23px;
   font-weight: 700px;
 }
-.impact .impact__text,.highlight-yellow{
-font-size:25.63px
-}
-.impact__text,.impact__text>.highlight-yellow{
-  @include screenMin768OrLand{
-    font-size:44px!important;
-    font-weight: 700;
-    line-height: 44px;
-  }
-}
+
+
 .impact>div{
   @include screenMin768OrLand{
     flex:1
@@ -1153,6 +1272,10 @@ font-size:25.63px
 }
 .highlight-yellow{
   color:#FAEB00;
+      font-weight: 700;
+}
+.highlight-blue{
+  color:$unhcr-blue;
       font-weight: 700;
 }
 .learn-more{
@@ -1413,11 +1536,18 @@ select{
   font-family: proxima-nova
 }
 .tips{
-  background-color:#F5F5F5;
+  background-color:$unrwa-lightBlue;
+
   @include screenMin768AndLand{
     max-width: 752px;
-
+    padding-left: 76px;
+  padding-right: 22px;
     @include alignHorizontal;
+  }
+}
+.tips hr{
+  @include screenMin768{
+      width: 80%;
   }
 }
 .tips>.tip:last-child{
@@ -1441,7 +1571,7 @@ select{
   text-align:center
 }
 .tip h4{
-  color: $unhcr-blue;
+  color: $unrwa-blue;
   @include screenMin768OrLand{
     font-size:30px;
     text-align: left;
@@ -1507,7 +1637,7 @@ padding: 0 68px;
   margin-bottom: 23px
 }
 .fundraising-tools{
-  background-color: $unhcr-blue;
+  background-color: $unrwa-blue;
   padding: 34px 0 42px 0;
 }
 .tip__content img{
@@ -1520,6 +1650,7 @@ padding: 0 68px;
 }
 .fundraising-tools .custom__button-main,.start-campaign .custom__button-main,.start-campaign-today .custom__button-main{
   margin-bottom:0;
+  font-size:15.2px;
 }
 .hero.hero-difference-is-key{
   background-image: url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_difference_you_make_unhcr_header@2x.jpg);
@@ -1528,14 +1659,36 @@ padding: 0 68px;
   padding: 60px 22px;
 
 }
-.intro-difference-is-key h1,.content-intro h1{
+.about__intro{
+  @include alignHorizontal
+  max-width: 753px;
+}
+.about__intro p {
+  text-align:center;
+  margin-bottom:26px;
+}
+.intro-difference-is-key h1,.content-intro h1,.about__intro h1{
   color:black;
+  margin-bottom: 30px;
+  line-height: 30px;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  text-align:center;
+  max-width: 480px;
+  @include screenMin768OrLand{
+    font-size: 30px;
+  };
+  .highlight-blue{
     margin-bottom: 30px;
-
-line-height: 30px;
+    line-height: 30px;
     @include screenMin768OrLand{
       font-size: 30px;
-    }
+    };
+  }
+}
+.about__intro h1{
+  margin-top:39px;
 }
 .intro-difference-is-key *{
   text-align: center;
@@ -1925,6 +2078,24 @@ grid-row-end: 1;}
       width: 100vw;
 
       @include alignHorizontal;
+}
+.we-provide-assistance{
+  background-color:$unrwa-blue;
+      text-align: center;
+      width: 100vw;
+      padding:72px 0;
+      @include alignHorizontal;
+}
+.we-provide-assistance__wrapper *{
+  color:white;
+}
+.we-provide-assistance__wrapper h1{
+  @include alignHorizontal
+      max-width: 632px;
+}
+.we-provide-assistance__wrapper a{
+
+  border: 1px solid white
 }
 .start-campaign-today__wrapper{
   max-width: 753px;
@@ -2625,4 +2796,108 @@ footer{
 }
 .projects-new .image_banner,.examples-wrapper-inner .infos-money{
   display: none
+}
+.key-figures{
+  display: flex;
+  flex-direction: column-reverse;
+  max-width:1140px;
+  @include screenMin768{
+    flex-direction: row;
+    @include alignHorizontal
+  }
+}
+.key-figures>div{
+  flex-basis:50%
+}
+.key-figures-data{
+  background: $unrwa-lightBlue;
+  padding:50px;
+}
+.key-figures-data *{
+  text-align:center
+}
+
+.key-figures-data>h1{
+
+  color:$unrwa-blue;
+  @include DINbold;
+
+}
+.key-figures-data>div>div h1{
+  @include DinExtraBold;
+  line-height: 62.38px;
+
+    font-size: 62.38px;
+}
+.donation-action{
+  display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    @include screenMin768{
+      flex-direction: row
+    }
+}
+.donation-action>div{
+  flex-basis:49%;
+}
+.donation-action>div:first-child{
+
+  @include screenMin768OrLand{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.donation-action>div:nth-child(2){
+  background:$unrwa-lightBlue;
+  display: flex;
+    flex-wrap: wrap;
+}
+.action-data{
+  flex-basis:50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.action-data{
+  flex-basis:50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.action-data__wrapper>div:first-child,.action-data__wrapper>div:nth-child(2){
+  margin-bottom: 38px;
+}
+.action-data__wrapper{
+
+  padding:29px;
+}
+.donations-in-action{
+  max-width: 926px;
+  padding-top:60px;
+  @include alignHorizontal
+}
+.donation-action h2{
+  color:$unrwa-blue
+}
+.donations-in-actions__intro{
+  margin-bottom: 60px;
+}
+.donations-in-actions__intro>h1,.donations-in-actions__intro>p{
+  text-align: center;
+}
+.donations-in-action__text{
+  	font-family: myriad-pro;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+}
+.donations-in-action__number{
+  	@include DINdemi;
+    font-size: 26px;
+    line-height: 29px;
+    color:$unrwa-blue;
+    margin:11px 0;
 }
