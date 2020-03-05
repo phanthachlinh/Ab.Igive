@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AbUi_EventPage _renderShareLinkComponent should match snapshot 1`] = `
+"<head></head><body><div id=\\"widget-new-project\\">
+				</div>
+      <div class=\\"share-link\\">
+        <h6> Share this campaign</h6>
+        <div class=\\"share-link__wrapper\\">
+        <input type=\\"text\\" value=\\"http://localhost/\\">
+        <button>Copy link</button>
+        </div>
+      </div>
+    
+				</body>"
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AbUi_ShareLink getShareLinkComponent should match en snapshot 1`] = `
+"
+      <div class=\\"share-link\\">
+        <h6> Share this campaign</h6>
+        <div class=\\"share-link__wrapper\\">
+        <input type=\\"text\\" value=\\"http://localhost/\\" />
+        <button>Copy link</button>
+        </div>
+      </div>
+    "
+`;
+
+exports[`AbUi_ShareLink getShareLinkComponent should match hk snapshot 1`] = `
+"
+      <div class=\\"share-link\\">
+        <h6>分享此籌款活動</h6>
+        <div class=\\"share-link__wrapper\\">
+        <input type=\\"text\\" value=\\"http://localhost/\\" />
+        <button>複製連結</button>
+        </div>
+      </div>
+    "
+`;

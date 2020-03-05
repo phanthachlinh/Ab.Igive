@@ -1,9 +1,5 @@
-@font-face {
-  font-family: DIN;
-  src: url('http://localhost:8881/din-regular.woff');
-}
 $header-menu-font-size: 10.2px;
-$unhcr-blue: #0072bc;
+$unrwa-blue: #0072bc;
 
 $unrwa-blue: #24AAE2;
 $unhcr-yellow: #FAEB00;
@@ -61,7 +57,7 @@ font-weight: 600;
 font-style: normal;
 }
 h1.blue{
-  color: $unhcr-blue!important;
+  color: $unrwa-blue!important;
 }
 h2{
   font-size:19px;
@@ -134,11 +130,14 @@ transition: left 0.5s;
 #mobileNav li{
   border-left: 0;
   border-right: 0;
-  padding: 15px;
+  position:relative
 }
 #mobileNav a {
-  color: $unhcr-blue;
+  color: $unrwa-blue;
   font-size:24px;
+  width: 100%;
+display: block;
+padding:15px;
 }
 #header-header>.row:first-child>div:nth-child(2){
   padding: 0 22px;
@@ -190,7 +189,7 @@ a.logo{
   position: relative
 }
 .top-bar-section ul li:hover:not(.has-form) > a{
-  color: $unhcr-blue
+  color: $unrwa-blue
 }
 .footer-link-menu:not(:last-child)::after{
   @include screenMin768OrLand{
@@ -239,10 +238,10 @@ header.main-header a.button{
   padding: 0 30px;
 }
 .main-header .top-bar-section ul li:hover:not(.has-form) > a{
-  color:$unhcr-blue
+  color:$unrwa-blue
 }
 header.main-header .dropdown li:not(.has-form):not(.active) a:not(.button):hover{
-  background-color: $unhcr-blue
+  background-color: $unrwa-blue
 }
 #header-header .top-bar .top-bar-section .right{
   display: none;
@@ -352,6 +351,16 @@ width: 100%;
   list-style: none;
   text-align: center;
 }
+#mobileNav .dropdown.open{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: block;
+  z-index: 1;
+}
 
 .top-bar-section .has-dropdown > a:after{
   @include screenMin768OrLand{
@@ -369,8 +378,8 @@ width: 100%;
   }
 }
 .main-header .button, .main-header .button{
-  background-color: $unhcr-blue;
-  border-color: $unhcr-blue
+  background-color: $unrwa-blue;
+  border-color: $unrwa-blue
 }
 #header-header section.top-bar-section > a.button:first-child{
   width:100%;
@@ -380,10 +389,10 @@ width: 100%;
   }
 }
 .button{
-  background-color: $unhcr-blue
+  background-color: $unrwa-blue
 }
 .intro-my-event h1 *,.intro-my-event h2 *,.intro-my-event h3 *,.intro-my-event h4 *,.intro-my-event h5 *,.intro-my-event h6 *{
-  color:$unhcr-blue!important;
+  color:$unrwa-blue!important;
     font-weight: 700;
     font-size: 30px;
 }
@@ -391,7 +400,7 @@ width: 100%;
   background-color: white
 }
 .event-head .details-my-event .infos-money, .event-head .details-my-event .infos-money .percent{
-  color:$unhcr-blue
+  color:$unrwa-blue
 }
 .logo{
 
@@ -401,7 +410,7 @@ width: 100%;
   background-color: white;
 }
 #header-header>.row>div:first-child{
-  background-color: $unhcr-blue;
+  background-color: $unrwa-blue;
   height:80px;
   @include screenMin768OrLand{
     background-color: unset;
@@ -450,7 +459,7 @@ width: 100%;
      }
  }
  .top-bar .toggle-topbar.menu-icon a span{
-   color: $unhcr-blue;
+   color: $unrwa-blue;
    @include screenMax640px{
      font-size: $header-menu-font-size;
    }
@@ -487,10 +496,14 @@ width: 100%;
        padding-right: 15px;
  }
  .intro h1{
+   color: white;
+ }
+  .intro h1,.intro h1 .highlight-blue{
     font-size: 24px;
-    color: white;
+
     line-height: 24px;
  }
+
 .hero p,.intro h1 {
   max-width:754px;
   @include alignHorizontal;
@@ -545,10 +558,10 @@ transform: translateY(-50%);
    border:1px solid white
  }
  .hero-homepage{
-   background-image: url("http://localhost:8881/assets/image_header_home_unrwa.png");
+   background-image: url("https://libs.iraiser.eu/users/unrwa-p2p/public/assets/image_header_home_unrwa.png");
  }
  .hero-about{
-     background-image: url("http://localhost:8881/assets/pic_about_unrwa_header@2x.jpg"), url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_building_better_futures_unhcr@2x.jpg);
+     background-image: url("https://libs.iraiser.eu/users/unrwa-p2p/public/assets/pic_about_unrwa_header@2x.jpg"), url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_building_better_futures_unhcr@2x.jpg);
 
  }
  .hero-homepage h1{
@@ -581,8 +594,7 @@ transform: translateY(-50%);
    @include screenMin768OrLand{
      left: 10.66%;
      transform:none;
-
-     width:100vw;
+     max-width: 40%;
    }
  }
  .hero__content-wrapper h1{
@@ -693,6 +705,12 @@ padding:inherit 0;
      font-size: 19px
    }
  }
+ .hero-homepage .hero__content-wrapper p{
+   text-align: center;
+   @include screenMin768{
+     text-align: left
+   }
+ }
  .intro-step h1{
    font-size: 20px;
    line-height: 20px;
@@ -704,7 +722,7 @@ padding:inherit 0;
  }
  .top-bar-section .right li .dropdown{
    @include screenMin768OrLand{
-     background-color: $unhcr-blue
+     background-color: $unrwa-blue
    }
  }
  #indexs-index .intro{
@@ -866,7 +884,7 @@ transform: translateY(-50%);
    margin-top:28px;
  }
  .button-unrwa-blue,#widget-new-project a, .page-create{
-
+   @include DINbold;
    color: white;
    background-color: $unrwa-blue;
  }
@@ -959,7 +977,7 @@ transform: translateY(-50%);
    padding-top:50px;
    padding-bottom: 28px;
    @include screenMin768OrLand{
-     padding: 60px 22px;
+     padding: 60px 20px;
      max-width: 753px;
     left: 50%;
     position: relative;
@@ -977,7 +995,7 @@ transform: translateY(-50%);
    line-height: 20px;
  }
  .button-blue-border{
-   background-color: $unhcr-blue;
+   background-color: $unrwa-blue;
    border-color:white;
    border: 2.71px solid #FFFFFF;
    color:white;
@@ -988,7 +1006,7 @@ font-weight: 500;
 font-style: normal;
  }
  .content-contact-us-inner{
-     background-color: $unhcr-blue;
+     background-color: $unrwa-blue;
       padding: 84.2px 22px;
      @include screenMin768OrLand{
        display: flex;
@@ -1067,7 +1085,7 @@ border-right: 7px solid;
   @include alignHorizontal
 }
 #projects h3>a, .results h3>a{
-  color:$unhcr-blue;
+  color:$unrwa-blue;
     font-family: proxima-nova;
     font-size: 19.4px;
     font-weight: bold;
@@ -1083,7 +1101,7 @@ white-space: normal;
   flex:auto
 }
 #projects p>a{
-  color:$unhcr-blue;
+  color:$unrwa-blue;
     font-family: proxima-nova;
     font-size: 19.4px;
     font-weight: bold;
@@ -1092,7 +1110,7 @@ white-space: normal;
 margin: 26px;
 }
 .progress>.graph-barBack>.graph-bar{
-  background-color:$unhcr-blue
+  background-color:$unrwa-blue
 }
 .progress{
   border: 0;
@@ -1118,7 +1136,7 @@ padding: 0;
 text-align: center;
 line-height: 17px!important;
   text-transform: uppercase;
-  background-color: $unhcr-blue;
+  background-color: $unrwa-blue;
   position: relative;
     right: 50%;
     transform: translateX(50%);
@@ -1157,6 +1175,9 @@ article,.impact{
     display: flex;
     @include alignHorizontal
   }
+}
+.impact .custom__button-main.button-unrwa-blue{
+  @include DINdemi
 }
 .where-we-work__content{
     max-width:1140px;
@@ -1242,6 +1263,7 @@ align-items: center;
   }
 }
 .tip__content p {
+  max-width: 559px;
   @include screenMin768OrLand{
     text-align: left;
     padding-left: 28px;
@@ -1275,7 +1297,7 @@ align-items: center;
       font-weight: 700;
 }
 .highlight-blue{
-  color:$unhcr-blue;
+  color:$unrwa-blue;
       font-weight: 700;
 }
 .learn-more{
@@ -1286,7 +1308,7 @@ align-items: center;
 
 }
 .learn-more a{
-  color:$unhcr-blue
+  color:$unrwa-blue
 }
 .event-description h3{
   text-align: center;
@@ -1306,7 +1328,7 @@ align-items: center;
 }
 .event-description h3 a{
   font-size: 24px;
-    color: $unhcr-blue;
+    color: $unrwa-blue;
     font-weight: 700;
     @include screenMin768OrLand{
       font-size: 30px;
@@ -1326,7 +1348,7 @@ align-items: center;
   }
 }
 .event-item .chart .percent{
-  color:$unhcr-blue
+  color:$unrwa-blue
 }
 .event-description .fa-file-text-o{
   display: none!important;
@@ -1344,7 +1366,7 @@ align-items: center;
   margin-top:26px;
 }
 .event-item .amount>span{
-  color: $unhcr-blue;
+  color: $unrwa-blue;
       font-size: 24px;
       @include screenMin768OrLand{
         margin-bottom: 10px;
@@ -1417,7 +1439,7 @@ body:not(#indexs-index) .page-create{
   }
 }
 .page-see{
-  background-color: $unhcr-blue!important;
+  background-color: $unrwa-blue!important;
   border-radius: 0!important;
   @include screenMin768OrLand{
     margin-bottom: 0!important
@@ -1497,7 +1519,7 @@ h1, .panel h1{
   }
 }
 .fa-file-text-o:before{
-  color:$unhcr-blue
+  color:$unrwa-blue
 }
 .image_avatar_event{
   @include screenMin768OrLand{
@@ -1524,7 +1546,8 @@ width: 100%
   margin-bottom: 20px;
 }
 .hero-fundraising-tips .hero__content-wrapper{
-  transform: translateX(-50%)
+  transform: translateX(-50%);
+  max-width: 753px;
 }
 .hero-fundraising-tips{
   padding: 54px 22px;
@@ -1538,7 +1561,7 @@ select{
 .tips{
   background-color:$unrwa-lightBlue;
 
-  @include screenMin768AndLand{
+  @include screenMin768OrLand{
     max-width: 752px;
     padding-left: 76px;
   padding-right: 22px;
@@ -1581,17 +1604,17 @@ select{
 .tip p{
   @include screenMin768OrLand{
     font-size:19px;
-    flex:9
+    flex-basis:91%;
+
   }
 }
 .start-campaign,.fundraising-tools{
   padding:0 22px;
   text-align: center;
-
-    max-width: 1140px;
-
     @include alignHorizontal;
-
+}
+.start-campaign{
+      max-width: 1140px;
 }
 .fundraising-tools h4{
   color:white!important;
@@ -1643,7 +1666,7 @@ padding: 0 68px;
 .tip__content img{
   display: none;
   @include screenMin768OrLand{
-    flex:1;
+    flex-basis:9%;
     display: block;
     width:60px;
   }
@@ -1653,7 +1676,7 @@ padding: 0 68px;
   font-size:15.2px;
 }
 .hero.hero-difference-is-key{
-  background-image: url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_difference_you_make_unhcr_header@2x.jpg);
+  background-image: url(https://libs.iraiser.eu/users/unrwa-p2p/public/assets/pic_difference_you_make_unhcr_header@2x.jpg);
 }
 .intro-difference-is-key,{
   padding: 60px 22px;
@@ -1675,10 +1698,11 @@ padding: 0 68px;
   position: relative;
   transform: translateX(-50%);
   text-align:center;
-  max-width: 480px;
+  max-width: 753px;
   @include screenMin768OrLand{
     font-size: 30px;
   };
+
   .highlight-blue{
     margin-bottom: 30px;
     line-height: 30px;
@@ -1687,8 +1711,12 @@ padding: 0 68px;
     };
   }
 }
+.highlight-blue-inline{
+  color:$unrwa-blue
+}
 .about__intro h1{
   margin-top:39px;
+    max-width: 470px;
 }
 .intro-difference-is-key *{
   text-align: center;
@@ -1805,7 +1833,7 @@ section.section-my-event aside h3{
 #form-project .tabs .active a{
   padding: 0 30px;
 
-  background-color: $unhcr-blue
+  background-color: $unrwa-blue
 }
 #form-project .tabs dd.active a{
   @include screenMax640px{
@@ -1823,7 +1851,7 @@ position: relative;
 }
 #my-profile header.people .rounded,.people .rounded{
   margin-bottom: 0;
-  border: 1px solid $unhcr-blue
+  border: 1px solid $unrwa-blue
 }
 #my-profile>.first-section:first-child,.user-show>.first-section:first-child{
   background-color: white
@@ -1894,11 +1922,11 @@ position: relative;
   }
 }
 .project_event_description a{
-  color: $unhcr-blue
+  color: $unrwa-blue
 }
 #my-profile .tabs .active a,.user-show .tabs .active a{
 
-    background-color: $unhcr-blue;
+    background-color: $unrwa-blue;
 }
 .user-show .tabs a {
     color: #fff;
@@ -1943,7 +1971,7 @@ position: relative;
 }
 #form-project .tabs a{
   padding: 0 20px;
-  background-color: $unhcr-blue
+  background-color: $unrwa-blue
 }
 section.section-my-event aside .donators .people .rounded{
   margin-bottom: 10px;
@@ -1955,7 +1983,7 @@ section.section-my-event aside .donators .people p:last-child{
   display: none;
 }
 .example-donations__wrapper{
-  background-color: $unhcr-blue;
+  background-color: $unrwa-blue;
   max-width: 1140px;
   @include alignHorizontal;
   @include screenMin768OrLand{
@@ -2146,7 +2174,7 @@ grid-row-end: 1;}
   }
 }
 .project-detail-data{
-    background-color: $unhcr-blue
+    background-color: $unrwa-blue
 }
 .project-detail-data> .small-centered{
   width: 100%;
@@ -2239,7 +2267,10 @@ header ul.left .dropdown{
   }
 }
 .has-dropdown .fa-chevron-right{
-  float:right
+  top: 50%;
+    position: absolute;
+    right: 15px;
+    transform: translateY(-50%);
 }
 .dropdown-mobile-open{
   position: absolute;
@@ -2443,7 +2474,7 @@ color:black
     background-color: $unhcr-lightBlue;
     color:white;
     @include screenMin768OrLand{
-      background-color: $unhcr-blue
+      background-color: $unrwa-blue
     }
   }
   #project_tabs .tabs-content{
@@ -2504,7 +2535,7 @@ color:black
     height: unset
   }
   .project_payment #list_payment .people p.money{
-    color:$unhcr-blue
+    color:$unrwa-blue
   }
    .share-link__wrapper{
     display: flex;
@@ -2527,7 +2558,7 @@ color:black
   background-color: $unhcr-gray;
   width: 90px;
   padding: 0;
-  color: $unhcr-blue
+  color: $unrwa-blue
   }
   #show_description{
     padding: 0 22px;
@@ -2558,7 +2589,7 @@ color:black
     margin-bottom: 0;
   }
   .lang-mobile li{
-    background-color: $unhcr-blue;
+    background-color: $unrwa-blue;
     border-color: white;
     border-top: 0.1px solid white;
   }
@@ -2576,13 +2607,13 @@ color:black
       margin-bottom: 30px;
     }
     .connexion .button{
-      background-color: $unhcr-blue
+      background-color: $unrwa-blue
     }
     .connexion .active_div a{
 
       @include alignHorizontal;
     display: inline-block;
-    color: $unhcr-blue;
+    color: $unrwa-blue;
     }
     .connexion .active_div label,.connexion .active_div input[type="email"],.connexion .active_div input[type="password"]{
       font-size: 19px;
@@ -2651,16 +2682,16 @@ max-width: 1140px;
       background-position: center;
 }
 #header-header .top-bar-section>li:not(.has-form) a:not(.button):hover{
-  color: $unhcr-blue
+  color: $unrwa-blue
 }
 .top-bar-section .left li .dropdown,.top-bar-section .dropdown{
   @include screenMin768OrLand{
     padding: 0 10px!important;
-    background-color: $unhcr-blue!important
+    background-color: $unrwa-blue!important
   }
 }
 .main-header .top-bar-section .has-dropdown>a:after,.main-header .top-bar-section .has-dropdown>a:after{
-  border-color: $unhcr-blue  transparent transparent transparent
+  border-color: $unrwa-blue  transparent transparent transparent
 }
 header.main-header .dropdown li:not(.has-form):not(.active) a:not(.button){
   background-color: transparent
@@ -2688,14 +2719,14 @@ header.main-header .dropdown li:not(.has-form):not(.active) a:not(.button){
 text-align: center;
 margin-top: 75px;
 margin-bottom: 40px;
-      color:$unhcr-blue;
+      color:$unrwa-blue;
       @include screenMin768OrLand{
         padding-top: 88px;
         margin-bottom: 56px;
       }
     }
     .successful-projects li h3 a{
-      color: $unhcr-blue;
+      color: $unrwa-blue;
 font-weight: 700;
 margin: 15px 0;
 display: inline-block;
@@ -2783,11 +2814,11 @@ display: block
           color:black
         }
         ul.pagination .projects-paginate a{
-          background-color: $unhcr-blue;
+          background-color: $unrwa-blue;
           color:white
         }
         ul.pagination>li:last-child a,ul.pagination>li:first-child a{
-          background-color: $unhcr-blue
+          background-color: $unrwa-blue
         }
 
 footer{
@@ -2818,7 +2849,7 @@ footer{
 }
 
 .key-figures-data>h1{
-
+  margin-bottom: 23px;
   color:$unrwa-blue;
   @include DINbold;
 
@@ -2830,13 +2861,20 @@ footer{
     font-size: 62.38px;
 }
 .donation-action{
-  display: flex;
+    display: flex;
     flex-direction: column;
-
+    margin-bottom:22px;
     justify-content: space-between;
     @include screenMin768{
-      flex-direction: row
+      flex-direction: row;
+
+      margin-bottom:51px;
     }
+}
+.donation-action-reverse{
+  @include screenMin768OrLand{
+    flex-direction: row-reverse;
+  }
 }
 .donation-action>div{
   flex-basis:49%;
@@ -2861,31 +2899,62 @@ footer{
   align-items: center;
 }
 .action-data{
-  flex-basis:50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 0px;
+    @include screenMin768OrLand{
+      padding: 0
+    }
+}
+.action-data>img{
+  width:32px;
+  height: 32px;
+  object-fit: contain;
 }
 .action-data__wrapper>div:first-child,.action-data__wrapper>div:nth-child(2){
-  margin-bottom: 38px;
+  @include screenMin768OrLand{
+    margin-bottom: 38px;
+  }
 }
 .action-data__wrapper{
 
-  padding:29px;
+  @include screenMin768OrLand{
+    padding:29px;
+  }
 }
 .donations-in-action{
   max-width: 926px;
   padding-top:60px;
-  @include alignHorizontal
+  padding:0 22px;
+  @include alignHorizontal;
+  @include screenMin768OrLand{
+    padding:0
+  }
 }
 .donation-action h2{
   color:$unrwa-blue
 }
+.donation-action-reverse.donation-action .donation__content h2,.donation-action-reverse.donation-action .donation__content p{
+  @include screenMin768OrLand{
+    text-align: right
+  }
+}
 .donations-in-actions__intro{
-  margin-bottom: 60px;
+  margin: 60px 0;
+}
+.donation__content{
+  margin-bottom: 22px;
+  @include screenMin768OrLand{
+    margin-bottom:0
+  }
 }
 .donations-in-actions__intro>h1,.donations-in-actions__intro>p{
   text-align: center;
+}
+.donations-in-actions__intro>h1{
+  margin-bottom: 23px;
 }
 .donations-in-action__text{
   	font-family: myriad-pro;
@@ -2900,4 +2969,64 @@ footer{
     line-height: 29px;
     color:$unrwa-blue;
     margin:11px 0;
+}
+.info-banner-dym{
+  max-width: 1140px;
+    display: flex;
+    flex-direction: column-reverse;
+    @include alignHorizontal;
+    @include screenMin768OrLand{
+      flex-direction: row;
+    }
+}
+.info-banner-dym>div{
+  flex-basis:50%
+}
+.info-banner-dym>.info-banner-dym__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $unrwa-lightBlue;
+  padding:22px;
+  @include screenMin768OrLand{
+    padding:0;
+  }
+}
+.info-banner-dym__content>*{
+  @include screenMin768OrLand{
+    max-width: 82%;
+    @include alignHorizontal
+  }
+}
+.info-banner-dym__content>h1{
+  text-align:center;
+  margin-bottom: 30px;
+  color: $unrwa-blue;
+}
+.info-banner-dym .quote,.info-banner-dym .quote-from{
+  font-size:16px;
+}
+.info-banner-dym .quote{
+  margin-bottom: 26px;
+    text-align: center;
+}
+.info-banner-dym .quote-from{
+  font-style:italic
+}
+.info-article-dym{
+  padding:60px 22px;
+  @include alignHorizontal;
+  max-width: 753px;
+  @include screenMin768OrLand{
+    padding:60px 0;
+
+  }
+}
+
+.info-article-dym>*{
+  text-align: center;
+}
+.info-article-dym>h1{
+  line-height: 32px;
+  margin-bottom: 30px;
 }

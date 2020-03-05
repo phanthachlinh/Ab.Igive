@@ -1,6 +1,6 @@
 const path = require('path');
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/app.ts',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '/public')
@@ -8,12 +8,15 @@ module.exports = {
   module:{
     rules:[
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['ts-loader'],
 
       }
     ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
   },
   watch: true
 }
