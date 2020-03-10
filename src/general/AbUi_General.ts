@@ -10,6 +10,7 @@ export default class AbUi_General {
 	teamcountWrapper: Array<HTMLDivElement>
 	newProjectWidgetButton: HTMLAnchorElement | null
 	projectDonateNowButton: HTMLDivElement | null
+	buttonsPageCreate: NodeListOf<HTMLAnchorElement>
 
 	constructor(translations: ITranslationsDictionary, language: string) {
 
@@ -21,6 +22,7 @@ export default class AbUi_General {
 		this.newProjectWidgetButton = document.querySelector('#events-show #widget-new-project a')
 		this.projectDonateNowButton = document.querySelector(".project_boutons_give")
 
+		this.buttonsPageCreate = document.querySelectorAll('.button.page-create')
 	}
 	/**
 	* rename button that shows all projects
@@ -29,7 +31,7 @@ export default class AbUi_General {
 		if (this.projectsButton)
 			this.projectsButton.innerText = this.translations[this.language].shared.seeAllCampaigns;
 		else
-			console.error('Project button (.section-home-projects .button) not found')
+			console.warn('Project button (.section-home-projects .button) not found')
 	}
 
 	/**
@@ -49,14 +51,14 @@ export default class AbUi_General {
 			if (this.newProjectWidgetButton)
 				this.newProjectWidgetButton.innerText = this.translations[this.language].shared.setupMyFundpage;
 			else
-				console.error('No new Project button found')
+				console.warn('No new Project button found')
 
 
 		if (document.getElementById('projects-show'))
 			if (this.projectDonateNowButton)
 				this.projectDonateNowButton.innerText = this.translations[this.language].shared.donateNow;
 			else
-				console.error('No donate now button found')
+				console.warn('No donate now button found')
 	}
 	/**
 	* remove name of the project owner and play icon from project thumbnails
@@ -78,12 +80,21 @@ export default class AbUi_General {
 			}
 		});
 	}
-
+	private _changeCreateFundPageText() {
+		if (this.buttonsPageCreate.length === 0)
+			console.warn('No button found (.button.page-create)')
+		else {
+			for (let i = 0; i < this.buttonsPageCreate.length; i++) {
+				this.buttonsPageCreate[i].innerText = this.translations[this.language].shared.createMyFundPage
+			}
+		}
+	}
 	render() {
 
 		this._renameProjectButton()
 		this._renameProjectToPages()
 		this._removeNameAndPlayIcon()
 		this._changeCtaButtonText()
+		this._changeCreateFundPageText()
 	}
 }

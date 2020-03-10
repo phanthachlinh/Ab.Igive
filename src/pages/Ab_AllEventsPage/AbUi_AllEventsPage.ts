@@ -9,6 +9,7 @@ export default class AbUi_AllEventsPage {
 	pageLanguage: string
 	pageHeadingContainerNode: HTMLDivElement | null
 	pageHeading: HTMLHeadingElement | null | undefined
+	events: NodeListOf<HTMLUListElement>
 
 	constructor(translations: ITranslationsDictionary, pageLanguage: string) {
 
@@ -17,6 +18,7 @@ export default class AbUi_AllEventsPage {
 		this.campaignSearchInput = document.querySelector('#front-search-filter .field-auto-search')
 		this.pageHeadingContainerNode = document.querySelector('.first-section>:first-child>:first-child>:first-child>:first-child')
 		this.pageHeading = this.pageHeadingContainerNode ?.querySelector('h1')
+		this.events = document.querySelectorAll('.event-item')
 	}
 
 	/**

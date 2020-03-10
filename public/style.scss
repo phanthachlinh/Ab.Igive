@@ -6,6 +6,7 @@ $unhcr-yellow: #FAEB00;
 $unhcr-gray: #F5F5F5;
 $unhcr-lightBlue:#66AAD7;
 $unrwa-lightBlue:#E9F4FD;
+$unrwa-orange: #FCB910;
 @mixin alignHorizontal{
   left: 50%;
 position: relative;
@@ -39,6 +40,11 @@ transform: translateX(-50%);
 @mixin DinExtraBold{
   font-family: din-2014, sans-serif;
   font-weight: 800;
+  font-style: normal;
+}
+@mixin DINregular{
+  font-family: din-2014, sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 @media (min-width: 40.063em){
@@ -394,13 +400,33 @@ width: 100%;
 .intro-my-event h1 *,.intro-my-event h2 *,.intro-my-event h3 *,.intro-my-event h4 *,.intro-my-event h5 *,.intro-my-event h6 *{
   color:$unrwa-blue!important;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 32px;
+    @include DINdemi
 }
 .habillage::after{
   background-color: white
 }
 .event-head .details-my-event .infos-money, .event-head .details-my-event .infos-money .percent{
-  color:$unrwa-blue
+  color:$unrwa-blue;
+  @include DINbold
+}
+.event-head>div:first-child{
+  max-width: 1140px;
+  @include screenMin768OrLand{
+    display: flex;
+  }
+}
+.event-head>div:first-child>div:first-child{
+  @include screenMin768OrLand{
+    border-right: 1px solid #979797
+  }
+
+}
+.event-head .intro-my-event .container{
+  @include screenMin768OrLand{
+    padding:0;
+    max-width: 462px;
+  }
 }
 .logo{
 
@@ -558,10 +584,10 @@ transform: translateY(-50%);
    border:1px solid white
  }
  .hero-homepage{
-   background-image: url("https://libs.iraiser.eu/users/unrwa-p2p/public/assets/image_header_home_unrwa.png");
+   background-image: url("https://libs.iraiser.eu/users/unrwa-p2p/public/assets/images/image_header_home_unrwa.png");
  }
  .hero-about{
-     background-image: url("https://libs.iraiser.eu/users/unrwa-p2p/public/assets/pic_about_unrwa_header@2x.jpg"), url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_building_better_futures_unhcr@2x.jpg);
+     background-image: url("https://libs.iraiser.eu/users/unrwa-p2p/public/assets/images/pic_about_unrwa_header@2x.jpg"), url(https://libs.iraiser.eu/users/unhcr-crowdfunding/public/assets/pic_building_better_futures_unhcr@2x.jpg);
 
  }
  .hero-homepage h1{
@@ -651,10 +677,13 @@ transform: translateY(-50%);
     background-color:$unhcr-gray
   }
 }
- .example-donations,.intro-difference-is-key,.example-campaign, .content-intro,#indexs-index .examples-wrapper-inner .event-item, .tips,.example-campaign-intro,.campaigns-thumbnails-title,article,.learn-more{
+ .example-donations,.intro-difference-is-key,.example-campaign,#indexs-index .examples-wrapper-inner .event-item, .tips,.example-campaign-intro,.campaigns-thumbnails-title,article,.learn-more{
    padding: 0 22px;
  }
-
+ #indexs-index .examples-wrapper-inner{
+   max-width: 1050px;
+   @include alignHorizontal
+ }
  #indexs-index .examples-wrapper-inner ul .amount{
    display: none;
 
@@ -705,6 +734,26 @@ padding:inherit 0;
      font-size: 19px
    }
  }
+ #events-index .event-item>.row>*{
+   display: flex;
+   flex:1;
+   flex-direction: column;
+ }
+  #events-index .event-item .teamcount{
+    display: none
+  }
+ #events-index .event-details>.wrap>.row>.columns:nth-child(2){
+   display: none
+ }
+ #events-index .first-section .row p{
+  max-width: 753px;
+  margin-bottom: 35px;
+  text-align: center;
+  @include alignHorizontal;
+  @include screenMin768OrLand{
+    margin-bottom: 40px;
+  }
+}
  .hero-homepage .hero__content-wrapper p{
    text-align: center;
    @include screenMin768{
@@ -895,15 +944,16 @@ transform: translateY(-50%);
    background-color: rgba(250,250,250,1);
  }
   #projects .panel .link-to-user a{
-    font-family: proxima-nova;
-    font-weight: 500;
+    font-family: myriad-pro;
     font-size: 15px;
 }
-    #projects .panel .info-money.detail{
-      color:black
-    }
+#projects .panel .info-money.detail{
+  color:black;
+  @include DINbold
+}
  #widget-new-project a{
-   color:black
+   color:black;
+   background: $unrwa-orange
  }
  .first-section{
    padding:0;
@@ -992,7 +1042,7 @@ transform: translateY(-50%);
    text-align: center
  }
  .example-campaign-intro>h1, .example-campaign-intro p{
-   line-height: 20px;
+   line-height: 24px;
  }
  .button-blue-border{
    background-color: $unrwa-blue;
@@ -1006,7 +1056,7 @@ font-weight: 500;
 font-style: normal;
  }
  .content-contact-us-inner{
-     background-color: $unrwa-blue;
+     background-color: $unrwa-lightBlue;
       padding: 84.2px 22px;
      @include screenMin768OrLand{
        display: flex;
@@ -1015,6 +1065,37 @@ font-style: normal;
   height: calc(100% - 22px);
      }
 
+ }
+ .content-contact-us-inner h2{
+   font-size:23.51px;
+   @include DINdemi;
+ }
+ .content-contact-us-inner a{
+   color: $unrwa-blue
+ }
+ .content-contact-us-inner>p, .content-contact-us-inner a {
+   font-size: 14.47px;
+   line-height:18px;
+   @include screenMin768OrLand{
+     font-size: 16px;
+     line-height:20px;
+
+   }
+ }
+ .content-contact-us-inner>p:nth-last-child(3){
+       margin-top: 18px;
+ }
+ .content-contact-us-inner .custom__button-main.button-blue-border{
+    background: none;
+    border-color: $unrwa-blue;
+    color: $unrwa-blue;
+    @include DINdemi
+    @include screenMin768OrLand{
+      width:100%
+    }
+ }
+ .color-primary,.color-secondary{
+   display: none
  }
 .content-contact-us{
   padding: 0 18px;
@@ -1042,8 +1123,14 @@ border-right: 7px solid;
   text-align: center;
 }
 .content-contact-us h2{
-  color:white!important;
+  color: $unrwa-blue!important;
   margin-bottom: 23px;
+  @include screenMin768OrLand{
+    padding: 0 15px;
+  }
+}
+.content-contact-us p{
+  color: black!important;
 }
 .campaigns-thumbnails-title{
   margin-top: 60px;
@@ -1057,6 +1144,7 @@ border-right: 7px solid;
     }
 }
 .campaigns-thumbnails-title h1{
+  max-width: unset;
   @include screenMin768OrLand{
     margin-bottom:0
   }
@@ -1086,9 +1174,8 @@ border-right: 7px solid;
 }
 #projects h3>a, .results h3>a{
   color:$unrwa-blue;
-    font-family: proxima-nova;
+    @include DINbold;
     font-size: 19.4px;
-    font-weight: bold;
     line-height: 24px;
     text-align: center;
 margin: 26px;
@@ -1104,7 +1191,6 @@ white-space: normal;
   color:$unrwa-blue;
     font-family: proxima-nova;
     font-size: 19.4px;
-    font-weight: bold;
     line-height: 24px;
     text-align: center;
 margin: 26px;
@@ -1140,7 +1226,10 @@ line-height: 17px!important;
   position: relative;
     right: 50%;
     transform: translateX(50%);
-    	font-family: proxima-nova;	font-size: 17px;	font-weight: 500;	letter-spacing: 1.21px;	line-height: 32px;
+    	@include DINdemi;
+      	font-size: 17px;
+        letter-spacing: 1.21px;
+        line-height: 32px;
 }
 .section-home-projects{
 
@@ -1177,8 +1266,14 @@ article,.impact{
   }
 }
 .impact .custom__button-main.button-unrwa-blue{
-  @include DINdemi
+  margin:28px;
+  @include DINdemi;
+  @include screenMin768OrLand{
+
+      min-width: 248px;
+  }
 }
+
 .where-we-work__content{
     max-width:1140px;
     @include alignHorizontal;
@@ -1217,6 +1312,9 @@ article,.impact{
 .where-we-work__content>.place__container>h2{
   color:$unrwa-blue
 }
+.places{
+  padding: 0 22px;
+}
 .places__top_2{
   display:flex
 }
@@ -1229,11 +1327,13 @@ article,.impact{
 .event-head{
   margin-top: 30px;
   @include screenMin768OrLand{
-    margin-top: 44px
+    margin-top: 76px
   }
 }
 .event-head .intro-my-event p{
-  font-size: 16px;
+  font-size: 19px;
+  font-family: 'myriad-pro';
+  line-height: 20px;
 }
 .impact .impact__content{
   @include screenMin768OrLand{
@@ -1282,8 +1382,13 @@ align-items: center;
 }
 .impact .impact__title{
   color:$unrwa-blue;
-  margin-bottom: 23px;
+  margin: 23px;
   font-weight: 700px;
+  @include screenMin768OrLand{
+    margin-top:0
+  }
+
+
 }
 
 
@@ -1318,7 +1423,7 @@ align-items: center;
 }
 #indexs-index .event-description h3{
   @include screenMin768OrLand{
-    text-align: center
+    text-align: center;
   }
 }
 #indexs-index .event-description p{
@@ -1382,6 +1487,11 @@ display: inline-block;
   display: flex
 }
 }
+#events-index .event-item .event-details{
+  @include screenMin768OrLand{
+    padding:0!important
+  }
+}
 .event-item .event-details{
   @include screenMin768OrLand{
     padding: 44px 59px 37px 39px!important;
@@ -1395,11 +1505,23 @@ display: inline-block;
 }
 .section-events .event-item .event-description,.event-item .event-details>.wrap>.row,.event-item .event-details>.wrap>.row>div:first-child{
   @include screenMin768OrLand{
-  height:100%}
+  height:100%;
+}
+}
+#events-index .event-item .panel .event-details .wrap{
+  @include screenMin768OrLand{
+    padding: 0 55px!important;
+    padding-top: 45px!important;
+  }
+}
+#events-index .button-group.radius > *:last-child{
+  display: none
 }
 .event-item .event-details>.wrap>.row>div:first-child{
+  @include alignHorizontal;
   @include screenMin768OrLand{
-    width: 66%;
+    width: 100%;
+
   }
 }
 #indexs-index .event-item .event-details>.wrap>.row>div:first-child{
@@ -1436,6 +1558,27 @@ body:not(#indexs-index) .page-create{
   @include screenMin768OrLand{
       margin-right: 9px!important;
         margin-bottom: 0!important
+  }
+}
+body:not(#indexs-index)#events-index .page-create{
+  background:none;
+  text-decoration: underline;
+  text-transform:  capitalize;
+  font-family: myriad-pro, sans-serif;
+  @include screenMin768OrLand{
+    font-size: 19px;
+      margin-right: 0px!important;
+      margin-bottom:45px!important
+  }
+}
+#events-index .event-description h3,#events-index .event-description p{
+  text-align: center;
+  @include screenMin768OrLand{
+}
+}
+#events-index .button-group.radius > *:first-child{
+  @include screenMin768OrLand{
+    @include alignHorizontal
   }
 }
 .page-see{
@@ -1521,8 +1664,10 @@ h1, .panel h1{
 .fa-file-text-o:before{
   color:$unrwa-blue
 }
-.image_avatar_event{
+#events-index .image_avatar_event{
   @include screenMin768OrLand{
+
+      position: absolute;
     height: 100%;
 object-fit: cover;
 width: 100%
@@ -1675,14 +1820,16 @@ padding: 0 68px;
   margin-bottom:0;
   font-size:15.2px;
 }
+
 .hero.hero-difference-is-key{
-  background-image: url(https://libs.iraiser.eu/users/unrwa-p2p/public/assets/pic_difference_you_make_unhcr_header@2x.jpg);
+  background-image: url(https://libs.iraiser.eu/users/unrwa-p2p/public/assets/images/pic_difference_you_make_unhcr_header@2x.jpg);
 }
 .intro-difference-is-key,{
   padding: 60px 22px;
 
 }
 .about__intro{
+  padding: 0 22px;
   @include alignHorizontal
   max-width: 753px;
 }
@@ -1699,13 +1846,13 @@ padding: 0 68px;
   transform: translateX(-50%);
   text-align:center;
   max-width: 753px;
-  @include screenMin768OrLand{
     font-size: 30px;
-  };
+
 
   .highlight-blue{
     margin-bottom: 30px;
     line-height: 30px;
+      font-size: 30px;
     @include screenMin768OrLand{
       font-size: 30px;
     };
@@ -1961,10 +2108,13 @@ position: relative;
   display: flex;
 }
 #form-project .button.btn-next{
-  font-family: proxima-nova;
+  @include DINdemi;
+  text-transform: uppercase;
+  min-width: 221px;
 }
 #form-project .text-center{
-  font-weight: 700!important
+  @include DINbold
+  font-size: 25px;
 }
 #form-project .new_project>div:nth-last-child(2){
   width: 50%;
@@ -2122,8 +2272,8 @@ grid-row-end: 1;}
       max-width: 632px;
 }
 .we-provide-assistance__wrapper a{
-
-  border: 1px solid white
+  @include DINdemi;
+  border: 3px solid white
 }
 .start-campaign-today__wrapper{
   max-width: 753px;
@@ -2188,7 +2338,8 @@ grid-row-end: 1;}
   display: none
 }
 #events-show .share-link input{
-  border: 1px solid lightgray;
+  background: $unrwa-lightBlue;
+  border:none
 }
 #events-show .share-link h6{
   color:black!important;
@@ -2359,7 +2510,9 @@ footer .right>li{
     float:right
   }
 }
-
+.infos-money .current-amount{
+  @include DINbold
+}
 section.section-projet-details .project-detail-data .current-amount{
   font-size: 32px;
   font-weight: 700;
@@ -2389,7 +2542,7 @@ z-index: 1;
   font-size: 16px;
   margin-bottom: 32.7px;
 }
-.percent , .infos-money .chart-wrap .percent small{
+.infos-money .chart-wrap .percent small{
   font-size: 33.33px!important;
     font-weight: 700!important;
     font-family: proxima-nova!important;
@@ -2429,12 +2582,13 @@ section.section-projet-details .project-detail-data .project_boutons_give{
       padding-top: 0;
       padding: 11px 0;
 font-size: 14.3px;
-font-family: Proxima-nova;
+@include DINbold;
 font-weight: 700;
 color: black;
-background: $unhcr-yellow;
+background: $unrwa-orange;
 @include screenMin768OrLand{
-  font-size: 19px;
+  padding: 5px 0;
+  font-size: 30px;
 }
 
 }
@@ -2445,7 +2599,7 @@ section.section-projet-details .project-detail-data .project_boutons_give .fa-gi
       border-bottom: 1px solid white!important;
 }
 #show_team {
-background-color: $unhcr-lightBlue
+background-color: transparent
 }
 #show_team a {
   font-size: 11.31px;
@@ -2454,6 +2608,7 @@ background-color: $unhcr-lightBlue
 section.section-projet-details .project-detail-data .project_boutons_join{
   height: unset;
      line-height: unset;
+     background:transparent
 }
 section.section-projet-details .project-detail-data .infos-money .chart-wrap.light .percent{
   position: absolute;
@@ -2462,9 +2617,10 @@ section.section-projet-details .project-detail-data .infos-money .chart-wrap.lig
     transform: translate(-50%,-50%);
 }
 .tabs dd > a{
-    font-size: 14.33px;
+  font-size: 14px!important;
+  line-height: 32px;
     padding: 8px 0px;
-font-family: proxima-nova;
+    @include DINregular
 color:black
   }
   .bx-viewport{
@@ -2540,6 +2696,11 @@ color:black
    .share-link__wrapper{
     display: flex;
   }
+  .share-link__wrapper>input{
+    @include screenMin768OrLand{
+      padding-left: 20px;
+    }
+  }
   .share-link{
     @include screenMin768OrLand{
       margin-bottom: 51px;
@@ -2553,12 +2714,12 @@ color:black
   .share-link button{
     margin:0;
     font-size: 10.5px;
-  font-family: proxima-nova;
-  font-weight: 700;
-  background-color: $unhcr-gray;
+  @include DINbold
+  background-color: #DCDCDC;
   width: 90px;
   padding: 0;
-  color: $unrwa-blue
+  color: $unrwa-blue;
+  text-transform: uppercase;
   }
   #show_description{
     padding: 0 22px;
@@ -2786,8 +2947,9 @@ display: block
         .section-projet-details .team_by.left{
           text-align: center;
           float:none!important;
+          text-transform: capitalize;
           @include screenMin768OrLand{
-            text-align: left
+            text-align: left;
           }
         }
         .projet-head .from_event {
@@ -2828,6 +2990,7 @@ footer{
 .projects-new .image_banner,.examples-wrapper-inner .infos-money{
   display: none
 }
+
 .key-figures{
   display: flex;
   flex-direction: column-reverse;

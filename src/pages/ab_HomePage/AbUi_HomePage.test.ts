@@ -7,7 +7,7 @@ console.error = jest.fn((errmsg: string) => {
 	throw errmsg
 })
 describe('AbUi_HomePage', () => {
-	describe('__renderContactUsThumbnail', () => {
+	describe('_renderContactUsThumbnail', () => {
 		it('should render contact us thumbnail', () => {
 			global.document.documentElement.innerHTML = new JSDOM(``)
 			abUiHomePageObj = new AbUi_HomePage(TEST_TRANSLATIONS, 'en')
@@ -25,6 +25,7 @@ describe('AbUi_HomePage', () => {
 			expect(document.documentElement.innerHTML).toMatchSnapshot()
 		})
 	})
+
 })
 /*
 global.document.documentElement.innerHTML = new JSDOM(`

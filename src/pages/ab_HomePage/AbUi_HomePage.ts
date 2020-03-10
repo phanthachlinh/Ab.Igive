@@ -25,10 +25,10 @@ export default class AbUi_HomePage {
 			let contactUsComponent =
 				`<section class="content-contact-us">
 					<div class="content-contact-us-inner">
-						<h2>${this.translations[this.pageLanguage].homepage.contactUsTitle}</h2>
-						<p>${this.translations[this.pageLanguage].homepage.contactUsSubtitle}</p>
-						<a class="custom__button-main button-blue-border" href="${window.location.origin}/contact_forms/new">
-							${this.translations[this.pageLanguage].homepage.contactUs}
+						<h2>${this.translations[this.pageLanguage].homepage.additionalEventListItem.title}</h2>
+						<p>${this.translations[this.pageLanguage].homepage.additionalEventListItem.subtitle}</p>
+						<a class="custom__button-main button-blue-border" href="${this.translations[this.pageLanguage].homepage.additionalEventListItem.buttonLink}">
+							${this.translations[this.pageLanguage].homepage.additionalEventListItem.buttonText}
 							</a>
 					</div>
 				</section>`
@@ -36,7 +36,6 @@ export default class AbUi_HomePage {
 		} else
 			console.error('Event thumbnail container not found')
 	}
-
 	render() {
 
 		this._renderContactUsThumbnail()

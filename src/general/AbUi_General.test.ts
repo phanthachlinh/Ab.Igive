@@ -63,4 +63,20 @@ describe('AbUi General', () => {
 			})
 		})
 	})
+	describe('_changeCreateFundPageText', () => {
+		it('should fail no buttons found', () => {
+			generalObj = new AbUi_General(TEST_TRANSLATIONS, 'en')
+			expect(() => { generalObj._changeCreateFundPageText() }).toThrow('No button found (.button.page-create)')
+		})
+		it('should contain translated text', () => {
+			global.document.documentElement.innerHTML = new JSDOM(`
+				<a class="button page-create">
+				</a>
+				`).serialize()
+			generalObj = new AbUi_General(TEST_TRANSLATIONS, 'en')
+			generalObj._changeCreateFundPageText()
+			let button: HTMLAnchorElement | null = document.querySelector('.button.page-create')
+			expect(button ?.innerText).toBe(TEST_TRANSLATIONS.en.shared.createMyFundPage)
+		})
+	})
 })

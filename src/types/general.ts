@@ -3,9 +3,12 @@ export interface ITranslationsDictionary {
 }
 export interface ITranslation {
 	homepage: {
-		contactUsTitle: string,
-		contactUsSubtitle: string,
-		contactUs: string
+		additionalEventListItem: {
+			title: string,
+			subtitle: string,
+			buttonText: string,
+			buttonLink: string
+		}
 	},
 	eventPage: {
 		title: string,
@@ -19,5 +22,6 @@ export interface ITranslation {
 		shareThisCampaign: string,
 		setupMyFundpage: string,
 		shareThisFundPage: string,
+		createMyFundPage: string
 	}
 }

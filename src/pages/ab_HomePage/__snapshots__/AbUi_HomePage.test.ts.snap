@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AbUi_HomePage __renderContactUsThumbnail should match snapshot 1`] = `
+exports[`AbUi_HomePage _renderContactUsThumbnail should match snapshot 1`] = `
 "<head></head><body><div class=\\"examples-wrapper-inner\\">
           <ul>
           <section class=\\"content-contact-us\\">
 					<div class=\\"content-contact-us-inner\\">
-						<h2>Still not sure what to do?</h2>
+						<h2>Still not sure what to do or how to do it?</h2>
 						<p>Get in touch. We’ll be happy to help you define your campaign and set up your fundraising page.</p>
-						<a class=\\"custom__button-main button-blue-border\\" href=\\"http://localhost/contact_forms/new\\">
+						<a class=\\"custom__button-main button-blue-border\\" href=\\"https://mycause.unhcr.org/contact_forms/new\\">
 							CONTACT US
 							</a>
 					</div>

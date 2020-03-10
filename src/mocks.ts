@@ -3,9 +3,12 @@ import { ITranslationsDictionary } from "./types/general";
 export const TEST_TRANSLATIONS: ITranslationsDictionary = {
 	en: {
 		homepage: {
-			contactUsTitle: 'Still not sure what to do?',
-			contactUsSubtitle: 'Get in touch. We’ll be happy to help you define your campaign and set up your fundraising page.',
-			contactUs: 'CONTACT US'
+			additionalEventListItem: {
+				title: 'Still not sure what to do or how to do it?',
+				subtitle: 'Get in touch. We’ll be happy to help you define your campaign and set up your fundraising page.',
+				buttonText: 'CONTACT US',
+				buttonLink: 'https://mycause.unhcr.org/contact_forms/new'
+			}
 		},
 		eventPage: {
 			title: 'Start your campaign today.',
@@ -18,14 +21,18 @@ export const TEST_TRANSLATIONS: ITranslationsDictionary = {
 			donateNow: 'DONATE NOW',
 			shareThisCampaign: ' Share this campaign',
 			setupMyFundpage: 'Setup my fundraising page',
-			shareThisFundPage: 'Share this fundraising page'
+			shareThisFundPage: 'Share this fundraising page',
+			createMyFundPage: 'Create my fundraising page'
 		}
 	},
 	hk: {
 		homepage: {
-			contactUsTitle: '還未肯定應該做甚麼？',
-			contactUsSubtitle: '與我們聯繫吧。我們樂意幫你為籌款項目找到定位，以及協助你創建籌款專頁。',
-			contactUs: '聯絡我們'
+			additionalEventListItem: {
+				title: '還未肯定應該做甚麼？',
+				subtitle: '與我們聯繫吧。我們樂意幫你為籌款項目找到定位，以及協助你創建籌款專頁。',
+				buttonText: '聯絡我們',
+				buttonLink: 'https://mycause.unhcr.org/contact_forms/new'
+			}
 		},
 		eventPage: {
 			title: '今日就建立你的籌款專頁',
@@ -38,7 +45,8 @@ export const TEST_TRANSLATIONS: ITranslationsDictionary = {
 			donateNow: '立即捐款',
 			shareThisCampaign: '分享此籌款活動',
 			setupMyFundpage: '設置我的籌款頁面',
-			shareThisFundPage: '分享此籌款專頁'
+			shareThisFundPage: '分享此籌款專頁',
+			createMyFundPage: '建立我的籌款頁面'
 		}
 	}
 }
