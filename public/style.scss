@@ -701,6 +701,7 @@ transform: translateY(-50%);
      padding: 0 11px!important;
    }
  }
+
   .h1{
     color:black;
   }
@@ -1062,7 +1063,8 @@ font-style: normal;
        display: flex;
            flex-direction: column;
            justify-content: center;
-  height: calc(100% - 22px);
+  height: 100% ;
+  margin-bottom: 22px;
      }
 
  }
@@ -1089,6 +1091,7 @@ font-style: normal;
     background: none;
     border-color: $unrwa-blue;
     color: $unrwa-blue;
+    text-align:center;
     @include DINdemi
     @include screenMin768OrLand{
       width:100%
@@ -1467,6 +1470,7 @@ align-items: center;
     left:0;
   }
 }
+
 .event-description .teamcount{
   margin-top:26px;
 }

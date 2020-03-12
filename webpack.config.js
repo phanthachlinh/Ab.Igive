@@ -18,5 +18,9 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.json']
   },
-  watch: true
+  watch: true,
+  optimization: {
+		// We no not want to minimize our code.
+		minimize: false
+	}
 }

@@ -11,6 +11,7 @@ export default class AbUi_General {
 	newProjectWidgetButton: HTMLAnchorElement | null
 	projectDonateNowButton: HTMLDivElement | null
 	buttonsPageCreate: NodeListOf<HTMLAnchorElement>
+	eventsThumbnailContainer: HTMLUListElement | null
 
 	constructor(translations: ITranslationsDictionary, language: string) {
 
@@ -21,8 +22,8 @@ export default class AbUi_General {
 		this.translations = translations
 		this.newProjectWidgetButton = document.querySelector('#events-show #widget-new-project a')
 		this.projectDonateNowButton = document.querySelector(".project_boutons_give")
-
 		this.buttonsPageCreate = document.querySelectorAll('.button.page-create')
+		this.eventsThumbnailContainer = document.querySelector('.examples-wrapper-inner ul')
 	}
 	/**
 	* rename button that shows all projects
@@ -89,6 +90,25 @@ export default class AbUi_General {
 			}
 		}
 	}
+	private _renderContactUsThumbnail(): void {
+
+		if (this.eventsThumbnailContainer) {
+
+			let contactUsComponent =
+				`<section class="content-contact-us">
+					<div class="content-contact-us-inner">
+						<h2>${this.translations[this.language].homepage.additionalEventListItem.title}</h2>
+						<p>${this.translations[this.language].homepage.additionalEventListItem.subtitle}</p>
+						<a class="custom__button-main button-blue-border" href="${this.translations[this.language].homepage.additionalEventListItem.buttonLink}">
+							${this.translations[this.language].homepage.additionalEventListItem.buttonText}
+							</a>
+					</div>
+				</section>`
+			this.eventsThumbnailContainer.insertAdjacentHTML('beforeend', contactUsComponent)
+		} else
+			console.warn('Event thumbnail container not found')
+	}
+
 	render() {
 
 		this._renameProjectButton()
@@ -96,5 +116,6 @@ export default class AbUi_General {
 		this._removeNameAndPlayIcon()
 		this._changeCtaButtonText()
 		this._changeCreateFundPageText()
+		this._renderContactUsThumbnail()
 	}
 }

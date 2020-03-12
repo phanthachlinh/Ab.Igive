@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AbUi_HomePage _renderContactUsThumbnail should match snapshot 1`] = `
+exports[`AbUi General _renderContactUsThumbnail should match snapshot 1`] = `
 "<head></head><body><div class=\\"examples-wrapper-inner\\">
           <ul>
           <section class=\\"content-contact-us\\">

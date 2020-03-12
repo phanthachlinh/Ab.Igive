@@ -79,4 +79,23 @@ describe('AbUi General', () => {
 			expect(button ?.innerText).toBe(TEST_TRANSLATIONS.en.shared.createMyFundPage)
 		})
 	})
+	describe('_renderContactUsThumbnail', () => {
+		it('should render contact us thumbnail', () => {
+			global.document.documentElement.innerHTML = new JSDOM(``)
+			generalObj = new AbUi_General(TEST_TRANSLATIONS, 'en')
+			expect(() => { generalObj._renderContactUsThumbnail() }).toThrow('Event thumbnail container not found')
+		})
+		it('should match snapshot', () => {
+			global.document.documentElement.innerHTML = new JSDOM(`
+        <div class="examples-wrapper-inner">
+          <ul>
+          </ul>
+        </div>
+        `).serialize()
+			generalObj = new AbUi_General(TEST_TRANSLATIONS, 'en')
+			generalObj._renderContactUsThumbnail()
+			expect(document.documentElement.innerHTML).toMatchSnapshot()
+		})
+	})
+
 })
