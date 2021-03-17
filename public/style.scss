@@ -1146,6 +1146,10 @@ font-size:25.63px
     line-height: 44px;
   }
 }
+.highlight-blue-inline{
+    font-size: inherit;
+    color:$unhcr-lightBlue
+}
 .impact>div{
   @include screenMin768OrLand{
     flex:1
