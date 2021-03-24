@@ -401,7 +401,7 @@ width: 100%;
   color:$unrwa-blue!important;
     font-weight: 700;
     font-size: 32px;
-    @include DINdemi
+    @include DINdemi;
 }
 .habillage::after{
   background-color: white
@@ -1092,7 +1092,7 @@ font-style: normal;
     border-color: $unrwa-blue;
     color: $unrwa-blue;
     text-align:center;
-    @include DINdemi
+    @include DINdemi;
     @include screenMin768OrLand{
       width:100%
     }
@@ -1393,8 +1393,10 @@ align-items: center;
 
 
 }
-
-
+.highlight-blue-inline{
+    font-size: inherit;
+    color:$unhcr-lightBlue
+}
 .impact>div{
   @include screenMin768OrLand{
     flex:1
@@ -1828,13 +1830,13 @@ padding: 0 68px;
 .hero.hero-difference-is-key{
   background-image: url(https://libs.iraiser.eu/users/unrwa-p2p/public/assets/images/pic_difference_you_make_unhcr_header@2x.jpg);
 }
-.intro-difference-is-key,{
+.intro-difference-is-key{
   padding: 60px 22px;
 
 }
 .about__intro{
   padding: 0 22px;
-  @include alignHorizontal
+  @include alignHorizontal;
   max-width: 753px;
 }
 .about__intro p {
@@ -2117,7 +2119,7 @@ position: relative;
   min-width: 221px;
 }
 #form-project .text-center{
-  @include DINbold
+  @include DINbold;
   font-size: 25px;
 }
 #form-project .new_project>div:nth-last-child(2){
@@ -2272,8 +2274,8 @@ grid-row-end: 1;}
   color:white;
 }
 .we-provide-assistance__wrapper h1{
-  @include alignHorizontal
-      max-width: 632px;
+  @include alignHorizontal;
+  max-width: 632px;
 }
 .we-provide-assistance__wrapper a{
   @include DINdemi;
@@ -2623,10 +2625,10 @@ section.section-projet-details .project-detail-data .infos-money .chart-wrap.lig
 .tabs dd > a{
   font-size: 14px!important;
   line-height: 32px;
-    padding: 8px 0px;
-    @include DINregular
-color:black
-  }
+  padding: 8px 0px;
+  @include DINregular;
+  color:black
+}
   .bx-viewport{
     height: unset!important
   }
@@ -2681,10 +2683,6 @@ color:black
     }
 
   }
-    .section-projet-details .project_images .bx-viewport .maybevideocontainer{
-
-    }
-
   .section-projet-details .project_images img{
       @include screenMin768OrLand{
         object-fit: cover;
@@ -2718,7 +2716,7 @@ color:black
   .share-link button{
     margin:0;
     font-size: 10.5px;
-  @include DINbold
+  @include DINbold;
   background-color: #DCDCDC;
   width: 90px;
   padding: 0;
