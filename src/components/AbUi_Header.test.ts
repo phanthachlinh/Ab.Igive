@@ -1,7 +1,7 @@
 declare var global: any
 import { JSDOM } from 'jsdom'
 import AbUi_Header from './AbUi_Header'
-import { TEST_TRANSLATIONS } from '../../mocks'
+import { TEST_TRANSLATIONS } from '../mocks'
 let abHeaderObj: any
 console.error = jest.fn((errmsg: string) => {
 	throw errmsg

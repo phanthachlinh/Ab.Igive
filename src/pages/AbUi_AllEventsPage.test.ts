@@ -1,6 +1,6 @@
 import AbUi_AllEventsPage from "./AbUi_AllEventsPage"
 declare var global: any
-import { TEST_TRANSLATIONS } from "../../mocks"
+import { TEST_TRANSLATIONS } from "../mocks"
 import { JSDOM } from "jsdom"
 let abUiProjectsPageObj: any
 console.error = jest.fn((errmsg: string) => {

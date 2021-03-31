@@ -9,6 +9,7 @@ import AbUi_EventPage from './pages/Ab_EventPage/AbUi_EventPage';
 import AbUi_ProjectPage from './pages/Ab_ProjectPage/AbUi_ProjectPage';
 import AbUi_Footer from './components/Ab_Footer/AbUi_Footer';
 import AbUi_MobileUserNavigation from './components/AbUi_MobileUserNavigation/AbUi_MobileUserNavigation';
+import './fonts/DIN-Regular.woff';
 interface Window {
 	AbIGive: (additionalCustomization?: any) => void;
 	pageData: {

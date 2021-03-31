@@ -1,6 +1,6 @@
 declare var global: any
 import { JSDOM } from 'jsdom'
-import { TEST_TRANSLATIONS } from '../../mocks'
+import { TEST_TRANSLATIONS } from '../mocks'
 import AbUi_ShareLink from './AbUi_ShareLink'
 let abShareLinkComponentObj: any
 console.warn = jest.fn((errmsg: string) => {

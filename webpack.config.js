@@ -17,6 +17,13 @@ module.exports = {
 
       },
       {
+        test: /\.(woff)$/i,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]',
+        },
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -38,11 +45,9 @@ module.exports = {
 		minimize: false
 	},
   plugins: [
-    new MiniCssExtractPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: "src/fonts", to: "/" },
-      ],
+    new MiniCssExtractPlugin({
+          filename: 'style.css',
     }),
+    
   ],
 }

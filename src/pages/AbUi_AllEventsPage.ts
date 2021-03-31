@@ -1,7 +1,7 @@
 /**
 * Class renders changes on the All events page (/events)
 **/
-import { ITranslationsDictionary } from "../../types/general"
+import { ITranslationsDictionary } from "../types/general"
 export default class AbUi_AllEventsPage {
 
 	campaignSearchInput: HTMLInputElement | null

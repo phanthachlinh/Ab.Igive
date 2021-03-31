@@ -1,8 +1,8 @@
 /**
 * Class renders changes on the project page
 **/
-import { ITranslationsDictionary } from "../../types/general";
-import AbUi_ShareLink from "../../components/Ab_ShareLink/AbUi_ShareLink";
+import { ITranslationsDictionary } from "../types/general";
+import AbUi_ShareLink from "../components/AbUi_ShareLink";
 export default class AbUi_ProjectPage {
 
 	translations: ITranslationsDictionary;

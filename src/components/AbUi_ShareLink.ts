@@ -1,4 +1,4 @@
-import { ITranslationsDictionary } from "../../types/general"
+import { ITranslationsDictionary } from "../types/general"
 /**
 * Class constructs the share link html and attaches event listeners
 **/

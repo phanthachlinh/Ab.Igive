@@ -1,7 +1,7 @@
 /**
 * Class renders change on the home page (/)
 **/
-import { ITranslationsDictionary } from "../../types/general"
+import { ITranslationsDictionary } from "../types/general"
 export default class AbUi_HomePage {
 
 	translations: ITranslationsDictionary

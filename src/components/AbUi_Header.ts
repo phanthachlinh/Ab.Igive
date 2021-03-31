@@ -2,7 +2,7 @@
 * Class replaces search input text in the header
 * and inserts a mobile menu node into the dom
 **/
-import { ITranslationsDictionary } from "../../types/general"
+import { ITranslationsDictionary } from "../types/general"
 export default class AbUi_Header {
 	translations: ITranslationsDictionary
 	header: HTMLElement | null

@@ -1,8 +1,7 @@
 import AbUi_EventPage from './AbUi_EventPage';
 declare var global: any
 import { JSDOM } from 'jsdom'
-import { ITranslationsDictionary } from '../../types/general';
-import { TEST_TRANSLATIONS } from '../../mocks';
+import { TEST_TRANSLATIONS } from '../mocks';
 let abEventPage: any
 declare var global: any
 console.error = jest.fn((errmsg: string) => {

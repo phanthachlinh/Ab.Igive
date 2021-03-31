@@ -1,8 +1,8 @@
 /**
 * Class renders changes on the Event page (/events/:event-name)
 **/
-import { ITranslationsDictionary } from "../../types/general"
-import AbUi_ShareLink from "../../components/Ab_ShareLink/AbUi_ShareLink"
+import { ITranslationsDictionary } from "../types/general"
+import AbUi_ShareLink from "../components/AbUi_ShareLink"
 export default class AbUiEventPage {
 	translations: ITranslationsDictionary
 	pageLanguage: string

@@ -1,5 +1,5 @@
 import AbUi_ProjectPage from './AbUi_ProjectPage'
-import { TEST_TRANSLATIONS } from '../../mocks'
+import { TEST_TRANSLATIONS } from '../mocks'
 import { JSDOM } from 'jsdom'
 declare var global: any
 let abUiProjectPageObj: any
